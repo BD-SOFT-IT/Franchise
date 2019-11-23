@@ -14,48 +14,48 @@ class SellerController extends Controller
     use AuthenticatesUsers;
 
 
-//    public function __construct()
-//    {
-//        $this->middleware('seller')->except('logout');
-//    }
-
     // Seller Registration Function
-    public function approval(Request $request)
+    public function processRegistration(Request $request)
     {
         // Validate Seller Registration Information
 
-        $this -> Validate($request,[
-            'seller_name'           => 'required | min:5 |',
-            'seller_email'          => 'required | email |unique:sellers,seller_email',
-            'seller_password'       => 'required | min:8',
-            'seller_shop_name'      => 'required | min:2',
-            'seller_shop_address'   => 'required | min:4',
-            'seller_shop_city'      => 'required',
-            'seller_shop_district'  => 'required',
-            'seller_shop_division'  => 'required',
-            'seller_shop_postcode'  => 'required | numeric',
-            'seller_shop_identity'  => 'required | numeric',
-            'seller_phone_number'  => 'required | numeric'
+        $t=$this -> Validate($request,[
+            'type_of_seller'            => 'required',
+            'shop_name'                 => 'required | min:4',
+            'shop_address'              => 'required | max:20',
+            'shop_road_number'          => 'required',
+            'shop_district'             => 'required',
+            'shop_url'                  => 'required',
+            'shop_identity'             => 'required | numeric',
+            'seller_first_name'         => 'required | min:5',
+            'seller_last_name'          => 'required | min:5',
+            'seller_email'              => 'required | email | unique:sellers,seller_email',
+            'seller_password'           => 'required | min:6',
+            'seller_number'             => 'required | min:11 | max:13',
+            'seller_alt_number'         => 'required | min:11 | max:13',
+            'seller_terms_conditions'   => 'required'
         ]);
-
 
         // Store Seller Information after Validate
 
-        $validateSellerInformation = [
-            'seller_account_type'   => $request->input('seller_account_type'),
-            'seller_name'           => $request->input('seller_name'),
-            'seller_email'          => strtolower($request->input('seller_email')),
-//            'seller_password'       => bcrypt($request->input('seller_password')),
-            'seller_password'       => Hash::make($request->input('seller_password')),
-            'seller_shop_name'      => $request->input('seller_shop_name'),
-            'seller_shop_address'   => $request->input('seller_shop_address'),
-            'seller_shop_city'      => $request->input('seller_shop_city'),
-            'seller_shop_district'  => $request->input('seller_shop_district'),
-            'seller_shop_division'  => $request->input('seller_shop_division'),
-            'seller_shop_postcode'  => $request->input('seller_shop_postcode'),
-            'seller_shop_identity'  => $request->input('seller_shop_identity'),
-            'seller_phone_number'  => $request->input('seller_phone_number')
+        $validateSellerInfo = [
+            'type_of_seller'            => $request->input('type_of_seller'),
+            'shop_name'                 => $request->input('shop_name'),
+            'shop_address'              => $request->input('shop_address'),
+            'shop_road_number'          => $request->input('shop_road_number'),
+            'shop_district'             => $request->input('shop_district'),
+            'shop_url'                  => $request->input('shop_url'),
+            'shop_identity'             => $request->input('shop_identity'),
+            'seller_first_name'         => $request->input('seller_first_name'),
+            'seller_last_name'          => $request->input('seller_last_name'),
+            'seller_email'              => strtolower($request->input('seller_email')),
+            'seller_password'           => Hash::make($request->input('seller_password')),
+            'seller_number'             => $request->input('seller_number'),
+            'seller_alt_number'         => $request->input('seller_alt_number'),
+            'seller_terms_conditions'   => $request->input('seller_terms_conditions')
         ];
+        dd($validateSellerInfo);
+        die();
 
         // Storing validate information in database
         try{

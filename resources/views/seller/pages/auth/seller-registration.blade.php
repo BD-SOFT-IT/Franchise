@@ -8,7 +8,7 @@
                         <h3 class="lead" style="margin-bottom: 100px; margin-left: 55px; letter-spacing: 2px;">Seller
                             Registration</h3>
                         <div class="main-input-field">
-                            <form action="{{ route('seller.approval') }}" method="post" class="was-validated"
+                            <form action="{{ route('seller.registered') }}" method="post" class="was-validated"
                                   autocomplete="off">
                                 @csrf
                                 <div class="form-group py-5">
@@ -16,14 +16,14 @@
                                         <h6 class="">Shop Details</h6>
                                     </div>
                                     <div class="custom-control custom-checkbox form-group custom-control-inline">
-                                        <input type="checkbox" name="accountseller"
+                                        <input type="checkbox" name="type_of_seller"
                                                class="custom-control-input
                                         form-control"
                                                id="sellerPersonal" value="personal">
                                         <label class="custom-control-label" for="sellerPersonal">Personal</label>
                                     </div>
                                     <div class="custom-control custom-checkbox form-group custom-control-inline">
-                                        <input type="checkbox" name="accountseller"
+                                        <input type="checkbox" name="type_of_seller"
                                                class="custom-control-input
                                         form-control"
                                                id="sellerBusiness" value="business">
