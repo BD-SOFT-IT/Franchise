@@ -15,8 +15,8 @@ Route::group(['prefix' => 'seller'], function (){
     route::get('seller_dashboard/seller-invoice', 'SellerPagesController@getInvoice')->name('seller.invoice');
 
     //Seller Auth Routes
-    route::get('pages/auth/seller-login','SellerController@showLoginForm')->name('seller.seller-login');
-    route::get('pages/auth/seller-registration', 'SellerPagesController@registration')->name('seller.registration');
+    route::get('login','SellerController@showLoginForm')->name('seller.seller-login');
+    route::get('registration', 'SellerPagesController@registration')->name('seller.registration');
     route::post('pages/auth/approval','SellerController@approval')->name('seller.approval');
     route::post('pages/auth/seller-approval','SellerController@processLogin')->name('seller.test-login');
 
