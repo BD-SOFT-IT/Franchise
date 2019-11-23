@@ -108,6 +108,6 @@ class SellerController extends Controller
 
         $request->session()->invalidate();
 
-        return redirect('seller/pages/auth/seller-login');
+        return redirect('seller/login');
     }
 }

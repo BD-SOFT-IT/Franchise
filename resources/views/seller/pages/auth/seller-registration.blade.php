@@ -8,22 +8,25 @@
                         <h3 class="lead" style="margin-bottom: 100px; margin-left: 55px; letter-spacing: 2px;">Seller
                             Registration</h3>
                         <div class="main-input-field">
-                            <form action="" method="post">
+                            <form action="{{ route('seller.approval') }}" method="post" class="was-validated"
+                                  autocomplete="off">
                                 @csrf
                                 <div class="form-group py-5">
                                     <div class="form-row mb-3 ml-0" style="border-bottom: 1px dashed #c1c1c1">
                                         <h6 class="">Shop Details</h6>
                                     </div>
                                     <div class="custom-control custom-checkbox form-group custom-control-inline">
-                                        <input type="checkbox" name="seller_personal" class="custom-control-input
+                                        <input type="checkbox" name="accountseller"
+                                               class="custom-control-input
                                         form-control"
-                                               id="sellerPersonal">
+                                               id="sellerPersonal" value="personal">
                                         <label class="custom-control-label" for="sellerPersonal">Personal</label>
                                     </div>
                                     <div class="custom-control custom-checkbox form-group custom-control-inline">
-                                        <input type="checkbox" name="seller_business" class="custom-control-input
+                                        <input type="checkbox" name="accountseller"
+                                               class="custom-control-input
                                         form-control"
-                                               id="sellerBusiness">
+                                               id="sellerBusiness" value="business">
                                         <label class="custom-control-label" for="sellerBusiness">Business</label>
                                     </div>
                                     <div class="form-row mb-3">
@@ -105,15 +108,18 @@
                                     </div>
                                     <div class="form-row mb-3">
                                         <div class="custom-control custom-checkbox form-group custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input form-control"
-                                                   id="termsConditions">
+                                            <input type="checkbox" name="seller_terms_conditions"
+                                                   class="custom-control-input
+                                            form-control"
+                                                   id="termsConditions" value="Agree">
                                             <label class="custom-control-label" for="termsConditions">I've
                                                 read and understood ecom's <a href="">Terms & Conditions</a></label>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
-                                            <input type="submit" class="btn btn-success" value="Submit">
+                                            <input type="submit" name="seller_button" class="btn btn-success"
+                                                   value="Submit">
                                         </div>
                                         <div class="col-10">
                                             <p class="lead">Already have a account? <a href="">Sign In</a></p>
