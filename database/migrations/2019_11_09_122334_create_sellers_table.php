@@ -15,18 +15,24 @@ class CreateSellersTable extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->bigIncrements('seller_id');
+            $table->string('seller_first_name');
+            $table->string('seller_last_name');
             $table->string('seller_email')->unique();
+            $table->string('type_of_seller');
+            $table->string('shop_name')->unique();
+            $table->string('shop_address');
+            $table->string('shop_road_number');
+            $table->string('shop_district');
+            $table->string('shop_url');
+            $table->string('shop_identity');
             $table->string('seller_password');
-            $table->string('seller_name',20);
-            $table->string('seller_shop_name',30)->unique();
-            $table->string('seller_shop_address',40);
-            $table->string('seller_shop_postcode');
-            $table->string('seller_shop_city');
-            $table->string('seller_shop_district');
-            $table->string('seller_shop_division');
-            $table->string('seller_shop_identity',10);
-            $table->string('seller_account_type');
-            $table->string('seller_phone_number',11);
+            $table->string('seller_number');
+            $table->string('seller_alt_number');
+            $table->string('seller_terms_conditions');
+            $table->string('email_verify_at')->nullable();
+            $table->string('verification_code')->nullable();
+            $table->boolean('is_active')->default('false');
+            $table->boolean('is_blocked')->default('false');
             $table->timestamps();
         });
     }

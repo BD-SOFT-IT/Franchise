@@ -16,9 +16,11 @@ Route::group(['prefix' => 'seller'], function (){
 
     //Seller Auth Routes
     route::get('login','SellerController@showLoginForm')->name('seller.seller-login');
-    route::get('registration', 'SellerPagesController@registration')->name('seller.registration');
-    route::post('pages/auth/approval','SellerController@approval')->name('seller.approval');
     route::post('pages/auth/seller-approval','SellerController@processLogin')->name('seller.test-login');
+
+    // Registration processes route section
+    route::get('registration', 'SellerPagesController@registration')->name('seller.registration');
+    route::post('registration','SellerController@processRegistration')->name('seller.registered');
 
     route::get('seller_dashboard/approved-products', 'SellerProductController@allApprovedProducts')->name('seller.allApprovedProducts');
     route::post('seller_dashboard/add-new-product', 'SellerProductController@processNewProduct')
