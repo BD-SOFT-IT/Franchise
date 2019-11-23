@@ -1,0 +1,17 @@
+.affiliate-page {
+  .franchise-wrapper { margin: 50px 0;
+    .card {
+      .card-header { color: var(--accent-color); }
+    }
+  }
+
+  .registered {
+    .happy {
+      i { color: var(--accent-color); font-size: 150px; }
+    }
+    h3 { line-height: 45px; color: var(--accent-color); font-weight: 600; }
+    p { font-size: 15px; letter-spacing: 0.03em; font-weight: 600; line-height: 30px;
+      span { font-size: 20px; }
+    }
+  }
+}

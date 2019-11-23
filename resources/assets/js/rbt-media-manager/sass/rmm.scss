@@ -1,0 +1,136 @@
+/* rmm sass */
+
+@import "variables";
+@import "mixins";
+
+.rmm-container {
+  .rbt-media-manager { min-height: 100%; min-width: 100%; font-size: 13px;
+    a, .btn, .fa { @include easeInOutTransition(); }
+    .modal-content { border-radius: 0; border: 1px solid #dbe1e8;
+      .modal-header {
+
+      }
+      .modal-body { padding: 0;
+        .rmm-header-content { background-color: #f9f9f9; padding: 18px;
+          .rmm-top-nav {
+            .btn-group { margin-right: 5px;
+              .btn { background-color: $primary-bg; border-color: #d2d2d2 !important; color: $secondary-font; font-size: 13px; border-radius: 1px;
+                .fa { margin-right: 5px; font-size: 14px; }
+                &:hover { background-color: $active-bg !important; color: #fff !important;
+                  .fa { background-color: $active-bg !important; color: #fff !important; }
+                }
+              }
+              .btn.active { background-color: $active-bg !important; color: #fff !important; }
+            }
+            .btn-group.add-new .btn { background-color: $primary-color; color: #fff !important; border-color: #70a6e6 !important; }
+          }
+        }
+        .rmm-main-content { padding: 18px;
+          .rmm-sidebar-nav { font-size: 14px; border-right: 1px solid $primary-bg; margin-top: -18px; padding: 18px 0; width: 235px; float: left;
+            .main-directory { color: $light-font; letter-spacing: 0.03em; display: block; margin-bottom: 8px; }
+            .main-directory.active { color: $primary-font; }
+            .nav {
+              .nav-item {
+                .nav-link { color: $light-font; letter-spacing: 0.03em;
+                  .btn-group {
+                    .btn-light { color: $light-font; letter-spacing: 0.03em; font-size: 13px; background-color: transparent; border: 0; padding: 0 6px;
+                      &:hover { color: $primary-font; background-color: transparent; }
+                      &:focus { color: $light-font; background-color: transparent; box-shadow: none; }
+                    }
+                    .dropdown-menu {
+                      .dropdown-item { font-size: 13px; padding: 4px 18px 4px; }
+                    }
+                  }
+
+                }
+                .nav-link.active .btn-group .btn-light { color: $primary-font; }
+              }
+            }
+            p .fa, .nav-link .fa { margin-right: 3px; }
+          }
+          .rmm-library { margin-left: 235px;
+            .library-header { border-bottom: 1px solid $primary-bg; padding: 0 18px 18px; margin-right: -18px;
+            }
+            .library-content { padding: 18px 0 0 18px;
+              .all-files {
+                .rmm-file-container { margin-bottom: 30px;
+                  .file-image { border: 1px solid #e3e3e3; padding: 5px; border-radius: 3px; margin-bottom: 7px; @include easeInOutTransition(); cursor: pointer;
+                    img { @include easeInOutTransition(); }
+                    &:before { content: '\f05d'; font-family: FontAwesome; position: absolute; font-size: 35px; color: #99a4a6; background-color: #f9f9f9; top: 25%; left: 45%;
+                      vertical-align: middle; box-sizing: content-box; display: none; @include easeInOutTransition();
+                    }
+                    &:hover, &:focus {
+                      img { @include easeInOutTransition(); }
+                      &:before { display: none; @include easeInOutTransition(); }
+                    }
+                  }
+                  .btn-group { width: 100%;
+                    .btn { font-size: 13px; background-color: transparent; border: 1px solid #e3e3e3;
+                      &:hover, &:focus { box-shadow: none; }
+                    }
+                    .dropdown-menu {
+                      .dropdown-item { font-size: 13px; padding: 4px 18px 4px; }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .rmm-upload-modal, .add-folder-modal, .rename-folder-modal, .delete-folder-modal, .rmm-preview-modal, .delete-image-modal { z-index: 9876543211;  top: 30px; }
+  .rmm-upload-modal {
+    .modal-header {
+
+    }
+    .modal-body { padding: 25px;
+      .view-file { min-height: 175px; margin-bottom: 0;
+        .fa { font-size: 125px; color: $secondary-font; }
+      }
+      .custom-file { max-width: 450px; margin-bottom: 10px; }
+    }
+  }
+  .add-folder-modal {
+    .form-control { max-width: 400px; margin: 20px auto; text-align: center; }
+  }
+  .rename-folder-modal {
+
+  }
+  .delete-folder-modal {
+
+  }
+  .rmm-preview-modal {
+    .modal-content {
+      .modal-body {
+        .close-preview { position: absolute; right: 22px; opacity: 0.4; @include easeInOutTransition(); cursor: pointer;
+          &:hover { opacity: 1; }
+        }
+        .image-container {
+          .image-loading { padding: 100px 0; font-size: 44px; text-align: center;
+            span { display: block; margin-top: 20px; font-size: 20px; }
+          }
+          img { max-height: 75vh; max-width: 90%; }
+        }
+      }
+    }
+  }
+  .modal .rmm-file-container .file-image {
+    &:hover {
+      img { opacity: 0.3 !important; }
+      &:before { display: block !important; }
+    }
+  }
+}
+
+/* For Modal */
+.rbt-media-manager.modal { position: fixed; z-index: 987654321; min-width: 100%;
+  .modal-dialog { min-width: 94%; min-height: 94%; margin: 3%;
+    .modal-content { width: 100%;
+
+    }
+  }
+}
+
+@import "media";

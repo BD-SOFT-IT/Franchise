@@ -1,0 +1,90 @@
+// Fade in key frames
+@keyframes fadein {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from { opacity:0;  }
+  to { opacity:1; }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from { opacity:0; }
+  to { opacity:1; }
+}
+@-o-keyframes fadein { /* Opera */
+  from { opacity:0; }
+  to { opacity: 1; }
+}
+
+// Dropdown nav key frames
+@keyframes slideDropdown {
+  from { opacity:0; margin-top: -30px; }
+  to { opacity:1; margin-top: 2px; }
+}
+@-moz-keyframes slideDropdown { /* Firefox */
+  from { opacity:0; margin-top: -30px;  }
+  to { opacity:1; margin-top: 2px; }
+}
+@-webkit-keyframes slideDropdown { /* Safari and Chrome */
+  from { opacity:0; margin-top: -30px; }
+  to { opacity:1; margin-top: 2px; }
+}
+@-o-keyframes slideDropdown { /* Opera */
+  from { opacity:0; margin-top: -30px; }
+  to { opacity: 1; margin-top: 2px; }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content }
+  &:-moz-placeholder           { @content }
+  &::-moz-placeholder          { @content; opacity: 1; }
+  &:-ms-input-placeholder      { @content }
+}
+
+@mixin easeInOutTransition(){
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+@mixin cubicBezierTransition($t: 400ms){
+  -webkit-transition: all $t cubic-bezier(0.6, 0.4, 0.1, 1);
+  -moz-transition: all $t cubic-bezier(0.6, 0.4, 0.1, 1);
+  -ms-transition: all $t cubic-bezier(0.6, 0.4, 0.1, 1);
+  -o-transition: all $t cubic-bezier(0.6, 0.4, 0.1, 1);
+  transition: all $t cubic-bezier(0.6, 0.4, 0.1, 1);
+}
+
+@mixin fadeInAnimation($t) {
+  animation: fadein $t;
+  -moz-animation: fadein $t;
+  -webkit-animation: fadein $t;
+  -o-animation: fadein $t;
+}
+
+@mixin slideDropdownAnimation() {
+  animation-name: slideDropdown;
+  animation-duration: 200ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: slideDropdown;
+  -webkit-animation-duration: 200ms;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-name: slideDropdown;
+  -moz-animation-duration: 200ms;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-fill-mode: forwards;
+}
+
+@mixin customTransition($property, $time: 500ms, $timing: ease-in-out, $delay: 0ms) {
+  -webkit-transition: $property $time $timing $delay;
+  -moz-transition: $property $time $timing $delay;
+  -ms-transition: $property $time $timing $delay;
+  -o-transition: $property $time $timing $delay;
+  transition: $property $time $timing $delay;
+}

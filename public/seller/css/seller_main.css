@@ -1,0 +1,33 @@
+.do-seller-regi-homepage {
+    background: #3B3D40;
+}
+
+.do-main-regi {
+    padding-top: 65px;
+    height: auto;
+    width: 100%;
+    background-color: #FFEB17 ;
+}
+.main-input-field {
+    position: relative;
+    right: -55px;
+    top: -55px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #FEFEFE ;
+    border-radius: 2px;
+    /*box-shadow: 0 0 50px #c7c7c7;*/
+}
+
+.do-border {
+    padding-bottom: 34px;
+    border-bottom: 1px dashed #c1c1c1;
+}
+.do-custom-header {
+    padding: 5px 0;
+}
+#editor {
+    width: 100%;
+    height: 144px;
+}
+

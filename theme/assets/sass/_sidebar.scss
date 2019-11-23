@@ -1,0 +1,25 @@
+#toggleFilterProduct { font-size: 18px; font-weight: 600; text-transform: uppercase; border: 1px solid #e5e5e5;
+  padding: 8px 6px; text-align: center; cursor: pointer;
+  &:hover { background-color: var(--accent-color); color: #fff; }
+}
+.shop-sidebar { transition: all ease .45s;
+  .shop-sidebar-image-top { margin-bottom: 45px; }
+  .sidebar-filter, .sidebar-lists { margin-bottom: 40px;
+    h2 { font-size: 15px; margin-bottom: 20px; padding-bottom: 10px; text-transform: uppercase; font-weight: 700; line-height: 20px;
+      border-bottom: 1px solid #e5e5e5; color: var(--accent-color); letter-spacing: 1px;
+    }
+    .btn { height: 30px; line-height: 30px; padding: 0 20px; text-transform: capitalize; color: #ffffff; background: #262626;
+      border: 0; border-radius: 30px; -webkit-transition: 0.3s; transition: 0.3s; margin-bottom: 18px;
+      &:hover { background-color: var(--accent-color); }
+    }
+    ul {
+      li { position: relative; margin-bottom: 15px;
+        a { font-size: 14px; display: block; line-height: 16px; }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #shopSidebar { display: none; }
+}

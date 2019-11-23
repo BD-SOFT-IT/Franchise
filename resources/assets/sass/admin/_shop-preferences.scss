@@ -1,0 +1,28 @@
+/* Admin Shop Preferences */
+.admin-shop-preferences {
+  .admin-sp-locations {
+    .card {
+      .card-header {  }
+      .card-body { padding: 15px;
+        .accordion {
+          .card { margin-bottom: 0;
+            .card-header { padding: 6px 0;
+              .btn-link { font-size: 13px; color: #394263;
+                &:focus { text-decoration: none; }
+              }
+              .btn-group { opacity: 0; @include easeInOutTransition();
+                .btn { padding: 6px 8px; }
+              }
+              &:hover {
+                .btn-group { opacity: 1; @include easeInOutTransition(); }
+              }
+            }
+            .card-body {
+              .accordion { }
+            }
+          }
+        }
+      }
+    }
+  }
+} /* .admin-shop-preferences */

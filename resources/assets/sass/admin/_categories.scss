@@ -1,0 +1,18 @@
+/* Admin Categories Styles */
+.admin-categories {
+  .admin-new-category {
+    .card {
+      .card-body {
+        .col-md-6 .form-group {
+          &:last-child { border-bottom: 0; }
+        }
+        #categoriesImageUploader { text-align: center; border: 1px solid #ced4da; border-radius: 4px; padding: 30px 30px 10px;
+          img { margin: 15px auto 35px; overflow: hidden; max-width: 70%; }
+          .btn { font-size: 13px; font-weight: 600; padding: 3px 6px; margin: 0 0 5px 5px;
+            &:focus { box-shadow: none; }
+          }
+        }
+      }
+    }
+  }
+}

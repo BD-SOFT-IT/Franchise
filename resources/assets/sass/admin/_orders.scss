@@ -1,0 +1,50 @@
+/* Orders Styles */
+.admin-orders {
+  .admin-orders-table {
+    .card {
+      .card-header { }
+      .card-body {
+        .table {
+          tbody { font-size: 13px; }
+        }
+      }
+    }
+  }
+}
+
+/* Admin Order Single */
+.admin-order-single {
+  .admin-order-address {
+    .card { min-height: 230px; }
+    .order-address { margin: 0;
+      .name { margin-bottom: 8px; font-size: 17px; font-weight: 600; letter-spacing: 0.02em; line-height: 20px; }
+      span { line-height: 20px; }
+    }
+  }
+  .admin-order-information {
+    .admin-order-shipper {
+      .shipper-name { font-size: 17px; font-weight: 600; letter-spacing: 0.02em; line-height: 20px; margin-bottom: 8px; }
+      .shipper-details { line-height: 20px; letter-spacing: 0.02em; }
+    }
+  }
+}
+
+#orderPrint { font-family: 'Open Sans', sans-serif; width: 100%; background-color: #fff; padding: 25px;
+  table { width: 100%; }
+  td { padding: 2px 5px; }
+  .sb-address { margin: 8px 0; font-weight: 600; }
+  .invoice { vertical-align: top; text-align: right; font-weight: 600; text-transform: uppercase; font-size: 20px; }
+  .info-table { margin: 18px 0; }
+  .info-table td { border: 1px dashed #e4e4e4; width: 25%; }
+  .info-table .td-row { width: 30mm !important; }
+  .products-table { width: 100%; }
+  .products-table td, th { border: 1px solid #909090; }
+  .products-table th { text-align: center; }
+  .products-table .product-title { font-size: 13px; }
+  .products-table .product-title .bangla { font-family: 'AdorshoLipi'; font-size: 11px; }
+  .products-table .quantity { text-align: center; }
+  .products-table .total-price, .products-table .unit-price, .products-table .td-row { text-align: right; }
+  .products-table .td-row { border: 0 !important; }
+  .footer-thanks { text-align: center; font-weight: 600; font-size: 15px; margin: 15px 0 5px; }
+  .footer-text { text-align: center; }
+}

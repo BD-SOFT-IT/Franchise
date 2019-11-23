@@ -1,0 +1,12 @@
+.admin-footer { font-size: 13px; height: 40px; background: #fff; padding: 10px 0 10px 230px; color: #444; border-top: 1px solid #ced0d4; margin-left: 230px; position: fixed; width: 100%;
+  right: 0; bottom: 0; z-index: 123; @include customTransition(padding-left);
+  .admin-copyright, .admin-powered { margin: 0; letter-spacing: 0.01em;
+    span { font-weight: 600; }
+    a { color: $secondary-color; font-weight: 600;
+      &:hover, &:focus { text-decoration: underline; }
+    }
+  }
+  .admin-powered { text-align: right;  }
+}
+
+.admin-footer.main-sidebar-toggled { padding-left: 55px; }

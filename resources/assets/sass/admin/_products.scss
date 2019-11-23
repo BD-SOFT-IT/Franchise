@@ -1,0 +1,20 @@
+/*
+* Admin Products Style
+*/
+
+// New Product
+.admin-new-product {
+  .card-body { padding: 7px;
+    .card-header { font-size: 14px; }
+    .list-group { min-width: 130px;
+      .list-group-item { font-size: 13px; font-weight: 600; padding: 7px 10px;
+        .fa { margin-left: 3px; }
+      }
+    }
+
+    .product-images {
+      img { max-height: 110px; padding: 5px; }
+      .btn { padding: 5px 12px; font-size: 13px; }
+    }
+  }
+}

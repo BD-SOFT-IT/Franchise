@@ -1,0 +1,51 @@
+/* Media Queries  */
+
+@media screen and (max-width: 1199px) {
+
+}
+
+@media screen and (max-width: 991px) {
+
+  .admin-content {
+    .admin-page-header-action {
+      .nav { justify-content: center !important; }
+      .btn-light .fa { display: inline; margin-right: 2px; font-size: 20px; }
+    }
+  }
+
+  .order-data-table .card .card-body {
+    .data-table-footer .data-showing { text-align: center; }
+    .data-pagination { text-align: center !important;
+      .pagination{ float: none; display: inline-flex; display: -webkit-inline-box; margin-top: 15px; }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .admin-content { margin-bottom: 70px; }
+
+  .control-sidebar {
+    .control-sidebar-content, .control-sidebar-back { bottom: 70px; }
+  }
+
+  .admin-footer { height: 70px;
+    .admin-copyright, .admin-powered { text-align: center; padding: 4px 0; }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .admin-header .navbar-expand .navbar-nav .dropdown-menu { position: fixed; z-index: 123456; top: 50px; left: 60px; }
+  .admin-content { margin-right: -230px;
+    .dashboard-header { height: auto;
+      .header-welcome { text-align: center !important; margin-bottom: 30px; }
+    }
+  }
+  .admin-content.main-sidebar-toggled { margin-right: 0; }
+  .order-data-table .card .card-body {
+    .data-table-header .data-search { float: none;
+      .input-group { width: 100%;
+        .form-control { width: 1%; }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+import { cloneDeep, sortBy } from 'lodash/core';
+
+window._.cloneDeep = cloneDeep;
+window._.sortBy = sortBy;
+
+window.Popper = require('popper.js').default;
+window.$ = window.jQuery = require('jquery');
+
+require('bootstrap');
+
+require('./prototypes');
+require('./partials/userAgent');
+/*try {
+
+} catch (e) {}*/
+
+
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+
+// Load Site Basics in Vue App Instance
+try {
+    window.siteBasic = {
+        title: document.head.querySelector('meta[name="application-name"]').content
+    };
+}
+catch(e) {
+    console.error('Site Basic Data Not Loaded Correctly!');
+}
+
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+
+// import Echo from 'laravel-echo'
+
+// window.Pusher = require('pusher-js');
+
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
+// });

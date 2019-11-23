@@ -1,0 +1,118 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+// Font Awesome
+@import "~font-awesome/scss/font-awesome";
+// SB Custom Icons
+@import "../fonts/sbicon/scss/sbicon";
+// vue-wysiwyg
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
+// AdorshoLipi Font Bangla
+@import "../fonts/adorsholipi/adorsholipi";
+// Animate CSS
+@import "~animate.css/animate.min.css";
+// Variables
+@import "admin/variables";
+// Mixins
+@import "admin/mixins";
+
+
+// Common Styles
+body { font-family: 'Open Sans', sans-serif; }
+
+.container, .container-fluid, .row {
+  &:after { content: ""; clear: both; }
+}
+
+.form-control:focus, .custom-select:focus { border-color: $secondary-color !important; box-shadow: none !important; }
+
+a, .btn, .fa { text-decoration: none; @include easeInOutTransition();
+  &:hover { @include easeInOutTransition(); text-decoration: none; }
+}
+.btn.btn-primary { background-color: $primary-color; border-color: $primary-color;
+  &:hover, &:focus { background-color: transparent; color: $primary-color; box-shadow: none; }
+  &:focus { border-width: 2px; }
+}
+
+.dropdown .dropdown-toggle:after { content: '\f107'; font-family: FontAwesome; font-size: 15px; line-height: 15px;
+  vertical-align: sub; margin: 0 0 0 3px; border: 0; top: -3px; position: relative; left: -3px;
+}
+
+.modal { z-index: 9876543211; top: 30px; }
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before { background-color: $primary-color; box-shadow: none; }
+.custom-control-input:checked ~ .custom-control-label::before { color: #fff; background-color: $primary-color; }
+
+.rbt-text-main { color: $secondary-color !important; }
+.rbt-text-main-dark { color: $secondary-color-dark !important; }
+.rbt-text-warning { color: #e67e22 !important; }
+
+.rbt-bg-main { background-color: $secondary-color !important; }
+.rbt-bg-warning { background-color: #e67e22 !important; }
+
+.rbt-toast-container.toasted-container { z-index: 9876543211 !important;
+  .rbt-toast.toasted { line-height: 22px !important; }
+}
+
+
+/* Admin Auth */
+.admin-auth { width: 360px; margin: 90px auto;
+  .admin-auth-logo { text-align: center; overflow: hidden; margin-bottom: 35px;
+    img { overflow: hidden; margin: 0 auto; width: 98%; }
+    h2 { font-weight: 600; color: $primary-color; }
+  }
+  .card { border-radius: 0;
+    .card-header { font-size: 14px; color: #666; background-color: transparent; line-height: 20px; letter-spacing: 0.02em; border-radius: 0; padding: 20px 5px; text-align: center;
+      strong { color: $primary-color; }
+    }
+    .card-body { border-radius: 0;
+      .form-group { margin-bottom: 22px; font-size: 14px;
+        .form-control { border-radius: 0; font-size: 13px; border-right-color: transparent;
+          &:hover, &:focus { box-shadow: none; border-color: $primary-color !important; }
+        }
+        .input-group-append {
+          .input-group-text { border-radius: 0; border-left-color: transparent; background-color: transparent; color: #b1b7c3; }
+        }
+        .btn-primary { border-radius: 0; font-size: 14px; font-weight: 600; }
+        .btn-link { font-size: 13px; color: $primary-color;
+          &:hover, &:focus { text-decoration: underline; }
+        }
+      }
+    }
+  }
+  .register-box, .reset-password-box {
+    .card .card-body .form-group .form-control { border-right-color: #ced4da; }
+  }
+  .auth-footer { margin-top: 20px; font-size: 13px;
+    a { font-weight: 600; color: $primary-color;
+      img { width: 240px; }
+    }
+  }
+}
+
+.pages {
+  .pagination { display: inline-flex; margin: 10px auto;
+    .page-item.active {
+      .page-link { background-color: var(--success); border-color: var(--success); }
+    }
+  }
+}
+// vue transitions
+.fade-enter-active, .fade-leave-active {
+  @include customTransition(opacity, 450ms);
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0; @include customTransition(opacity, 450ms);
+}
+
+
+
+@import 'admin/header';
+@import 'admin/main-sidebar';
+@import 'admin/main';
+@import 'admin/footer';
+@import 'admin/control-sidebar';
+@import "admin/shoppingCart";
+@import "admin/checkout";
+@import 'admin/media-queries';
