@@ -122,7 +122,7 @@
                                                    value="Submit">
                                         </div>
                                         <div class="col-10">
-                                            <p class="lead">Already have a account? <a href="">Sign In</a></p>
+                                            <p class="lead">Already have a account? <a href="{{ route('seller.seller-login') }}">Sign In</a></p>
                                         </div>
                                     </div>
                                 </div>

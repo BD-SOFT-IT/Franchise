@@ -19,7 +19,9 @@ class SellerPagesController extends Controller
     public function profile()
     {
 
-        $sellerProduct = DB::table('seller_products')->select('product_id')->get();
+        $sellerProduct = DB::table('seller_products')
+            ->select(DB::raw('COUNT(product_id) AS product_id'))
+            ->get();
 
         return view('seller.seller_dashboard.seller-profile')->with([
             'sellerProduct'   => $sellerProduct
