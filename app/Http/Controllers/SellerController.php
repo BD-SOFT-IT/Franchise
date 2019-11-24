@@ -54,13 +54,11 @@ class SellerController extends Controller
             'seller_alt_number'         => $request->input('seller_alt_number'),
             'seller_terms_conditions'   => $request->input('seller_terms_conditions')
         ];
-        dd($validateSellerInfo);
-        die();
 
-        // Storing validate information in database
+        // Sending validate data to store in Database
         try{
 
-            Seller::create($validateSellerInformation);
+            $registeredSeller = Seller::create($validateSellerInfo);
 
             $this -> setSuccessMessage('User');
 
