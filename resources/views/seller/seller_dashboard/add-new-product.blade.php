@@ -2,7 +2,7 @@
 
 @section('addNewProduct-title')
     New Product
-    @endsection
+@endsection
 
 @section('addNewProduct')
     <div class="content-wrapper">
@@ -90,6 +90,7 @@
 
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -203,9 +204,9 @@
                                 <h6 class="text-center text-uppercase"> Product images</h6>
                             </div>
                             <div class="card-body">
-{{--                                <input class="productImage" type="file" name="product_image_path[]" multiple>--}}
+{{--                                                                <input class="productImage" type="file" name="product_image_path[]" multiple>--}}
                                 <div class="box">
-                                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple />
+                                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple style="display: none"/>
                                     <label for="file-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="13"
                                              viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.
@@ -229,3 +230,4 @@
     </div>
 
 @endsection
+
