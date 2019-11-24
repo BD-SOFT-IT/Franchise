@@ -69,20 +69,24 @@
                                     </div>
                                 </div>
 
-                                <div class="form-row mb-3 do-border">
-                                    <div class="col">
-                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Description
-                                            <span class="text-danger">*</span></small>
-                                        <div id="toolbar" aria-describedby="emailHelp">
+{{--                                <div class="form-row mb-3 do-border">--}}
+{{--                                    <div class="col">--}}
+{{--                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Description--}}
+{{--                                            <span class="text-danger">*</span></small>--}}
+{{--                                        <div id="toolbar" aria-describedby="emailHelp">--}}
 
-                                        </div>
+{{--                                        </div>--}}
 
-                                        <!-- Create the editor container -->
-                                        <textarea id="productDescription" name="product_description" placeholder="Enter your product description">
-                                        </textarea>
-                                    </div>
+{{--                                        <!-- Create the editor container -->--}}
+{{--                                        <textarea id="productDescription" name="product_description" placeholder="Enter your product description">--}}
+{{--                                        </textarea>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+                                <div class="form-group">
+                                    <textarea name="mailEditor" id="txtEditor"></textarea>
                                 </div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -195,3 +199,12 @@
     </div>
 
 @endsection
+
+
+<script>
+    $(document).ready(function() {
+        $('textarea').summernote({
+            height: 300,   //set editable area's height
+        });
+    });
+</script>
