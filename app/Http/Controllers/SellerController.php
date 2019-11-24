@@ -19,7 +19,7 @@ class SellerController extends Controller
     {
         // Validate Seller Registration Information
 
-        $t=$this -> Validate($request,[
+        $this -> Validate($request,[
             'type_of_seller'            => 'required',
             'shop_name'                 => 'required | min:4',
             'shop_address'              => 'required | max:20',
