@@ -8,6 +8,7 @@
     {{-- Stylesheets linked section started  --}}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('seller/css/seller_main.css') }}">
+    <link href="{{ asset('seller_dashboard/plugins/summernote/summernote-bs4.css/summernote-bs4.min.css') }}">
 
 </head>
 <body class="do-seller-regi-homepage">
@@ -25,6 +26,8 @@
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('seller/js/seller_main.js') }}"></script>
+    <script src="{{ asset('seller_dashboard/plugins/summernote/summernote-bs4.js/summernote-bs4.min.js') }}"></script>
+
 
 </body>
 </html>

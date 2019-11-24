@@ -2,7 +2,7 @@
 
 @section('addNewProduct-title')
     New Product
-    @endsection
+@endsection
 
 @section('addNewProduct')
     <div class="content-wrapper">
@@ -69,24 +69,21 @@
                                     </div>
                                 </div>
 
-{{--                                <div class="form-row mb-3 do-border">--}}
-{{--                                    <div class="col">--}}
-{{--                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Description--}}
-{{--                                            <span class="text-danger">*</span></small>--}}
-{{--                                        <div id="toolbar" aria-describedby="emailHelp">--}}
+                                <div class="form-row mb-3 do-border">
+                                    <div class="col">
+                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Description
+                                            <span class="text-danger">*</span></small>
+                                        <div id="toolbar" aria-describedby="emailHelp">
 
-{{--                                        </div>--}}
+                                        </div>
 
-{{--                                        <!-- Create the editor container -->--}}
-{{--                                        <textarea id="productDescription" name="product_description" placeholder="Enter your product description">--}}
-{{--                                        </textarea>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-                                <div class="form-group">
-                                    <textarea name="mailEditor" id="txtEditor"></textarea>
+                                        <!-- Create the editor container -->
+                                        <textarea id="productDescription" name="product_description" placeholder="Enter your product description">
+                                        </textarea>
+                                    </div>
                                 </div>
 
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -173,9 +170,9 @@
                                 <h6 class="text-center"> Product images</h6>
                             </div>
                             <div class="card-body">
-{{--                                <input class="productImage" type="file" name="product_image_path[]" multiple>--}}
+{{--                                                                <input class="productImage" type="file" name="product_image_path[]" multiple>--}}
                                 <div class="box">
-                                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple />
+                                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple style="display: none"/>
                                     <label for="file-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="13"
                                              viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.
@@ -200,11 +197,3 @@
 
 @endsection
 
-
-<script>
-    $(document).ready(function() {
-        $('textarea').summernote({
-            height: 300,   //set editable area's height
-        });
-    });
-</script>
