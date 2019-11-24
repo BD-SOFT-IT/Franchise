@@ -31,8 +31,8 @@ class CreateSellersTable extends Migration
             $table->string('seller_terms_conditions');
             $table->string('email_verify_at')->nullable();
             $table->string('verification_code')->nullable();
-            $table->boolean('is_active')->default('false');
-            $table->boolean('is_blocked')->default('false');
+            $table->tinyInteger('is_active')->default('0');
+            $table->tinyInteger('is_blocked')->default('1');
             $table->timestamps();
         });
     }

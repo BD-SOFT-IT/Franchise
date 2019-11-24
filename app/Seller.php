@@ -12,9 +12,24 @@ class Seller extends Authenticatable
 {
 //    protected $guard = 'seller';
 
-    protected $fillable = ['seller_email','seller_password','seller_name','seller_shop_name','seller_shop_address',
-        'seller_shop_postcode','seller_shop_city','seller_shop_district','seller_shop_division','seller_shop_identity',
-        'seller_phone_number','seller_account_type'];
+    protected $fillable = [
+        'seller_email',
+        'seller_password',
+        'seller_first_name',
+        'seller_last_name',
+        'type_of_seller',
+        'shop_name',
+        'shop_address',
+        'shop_road_number',
+        'shop_district',
+        'shop_url',
+        'shop_identity',
+        'seller_number',
+        'seller_alt_number',
+        'seller_terms_conditions',
+        'is_active',
+        'is_blocked',
+    ];
 
 //    protected $hidden = [
 //        'seller_password', 'remember_token'
