@@ -137,7 +137,7 @@
         @endcan
         @if(auth('admin')->user()->isAlpha() || auth('admin')->user()->isSuperAdmin())
              {{--Supplies Link --}}
-            {{--<li class="nav-item dropright">
+            <li class="nav-item dropright">
                 <a class="nav-link @yield('supplies-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-truck" title="Supplies"></i>
                     <span :class="{'hide': mainSidebarToggled}">Supplies</span>
@@ -153,7 +153,7 @@
                     <a href="#" class="dropdown-item @yield('supplier-new-active')">Add New Supplier</a>
                     <a href="#" class="dropdown-item @yield('supplier-all-active')">All Suppliers</a>
                 </div>
-            </li>--}}
+            </li>
              {{--Shippers Link--}}
             <li class="nav-item dropright">
                 <a class="nav-link @yield('shippers-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -220,8 +220,26 @@
                     <a href="{{ route('admin.franchise-control.all') }}" class="dropdown-item @yield('franchise-all-active')">All Franchises</a>
                 </div>
             </li>
+
+            {{-- Seller Link --}}
+            <li class="nav-item dropright">
+                <a class="nav-link @yield('franchise-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-handshake-o" title="Franchise"></i>
+                    <span :class="{'hide': mainSidebarToggled}">Seller</span>
+                    <span class="pull-right"><i class="fa fa-angle-right"></i></span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item hidden-menu-title" v-if="mainSidebarToggled">
+                        Seller
+                    </div>
+
+                    <a href="{{ route('admin.franchise-control.add') }}" class="dropdown-item @yield('franchise-new-active')">All Seller List</a>
+                    <a href="{{ route('admin.franchise-control.all') }}" class="dropdown-item @yield('franchise-all-active')">All Seller Request List</a>
+                </div>
+            </li>
+
             {{-- Expenses Link --}}
-            {{--<li class="nav-item dropright">
+            <li class="nav-item dropright">
                 <a class="nav-link @yield('expenses-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-paypal" title="Expenses"></i>
                     <span :class="{'hide': mainSidebarToggled}">Expenses</span>
@@ -235,10 +253,10 @@
                     <a href="#" class="dropdown-item @yield('expenses-new-active')">Add New Expense</a>
                     <a href="#" class="dropdown-item @yield('expenses-all-active')">All Expenses</a>
                 </div>
-            </li>--}}
+            </li>
         @endif
         {{-- Shop Preferences Links --}}
-        {{--@can('manage-preferences')
+        @can('manage-preferences')
             <li class="nav-item dropright">
                 <a class="nav-link @yield('shop-preferences-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-wrench" title="Shop Preferences"></i>
@@ -254,7 +272,7 @@
                     <a href="{{ route('admin.shop_preferences.delivery_schedules') }}" class="dropdown-item @yield('shop-preferences-schedules-active')">Delivery Schedules</a>
                 </div>
             </li>
-        @endcan--}}
+        @endcan
         {{--Marketing Links --}}
         @if(auth('admin')->user()->isAlpha() || auth('admin')->user()->isAdmin() || auth('admin')->user()->isSuperAdmin() || auth('admin')->user()->isManager())
             <li class="nav-item dropright">
@@ -268,11 +286,11 @@
                         Marketing
                     </div>
                     <a href="{{ route('admin.coupon.index') }}" class="dropdown-item @yield('marketing-coupons-active')">Coupons</a>
-                    {{--<a href="#" class="dropdown-item @yield('marketing-membership-active')">Membership</a>--}}
+                    <a href="#" class="dropdown-item @yield('marketing-membership-active')">Membership</a>
                     <a href="#" class="dropdown-item @yield('marketing-referral-active')">Referral</a>
-                    {{--<a href="#" class="dropdown-item @yield('marketing-sms-active')">SMS Promotion</a>--}}
-                    {{--<a href="#" class="dropdown-item @yield('marketing-email-active')">Email Promotion</a>
-                    <a href="#" class="dropdown-item @yield('marketing-mobile-active')">Mobile App Promotion</a>--}}
+                    <a href="#" class="dropdown-item @yield('marketing-sms-active')">SMS Promotion</a>
+                    <a href="#" class="dropdown-item @yield('marketing-email-active')">Email Promotion</a>
+                    <a href="#" class="dropdown-item @yield('marketing-mobile-active')">Mobile App Promotion</a>
                 </div>
             </li>
         @endif
@@ -299,12 +317,12 @@
                         Category Banners
                     </a>
                     <a href="{{ route('admin.ads.sidebar_banner') }}" class="dropdown-item @yield('ads-sidebar-active')">Sidebar Ads</a>
-                    {{--<a href="#" class="dropdown-item @yield('ads-product-active')">Product Page Ads</a>--}}
+                    <a href="#" class="dropdown-item @yield('ads-product-active')">Product Page Ads</a>
                 </div>
             </li>
         @endif
         {{-- Review Links --}}
-        {{--@if(auth('admin')->user()->isAlpha() || auth('admin')->user()->isAdmin() || auth('admin')->user()->isSuperAdmin() || auth('admin')->user()->isManager())
+        @if(auth('admin')->user()->isAlpha() || auth('admin')->user()->isAdmin() || auth('admin')->user()->isSuperAdmin() || auth('admin')->user()->isManager())
         <li class="nav-item dropright">
             <a class="nav-link @yield('reviews-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-comments-o" title="Product Reviews"></i>
@@ -325,12 +343,12 @@
             </div>
         </li>
         @endif
-        --}}{{-- Report Link --}}{{--
+         Report Link
         <li class="nav-item">
             <a class="nav-link @yield('reports-active')" href="#">
                 <i class="fa fa-pie-chart" title="Reports"></i> <span :class="{'hide': mainSidebarToggled}">Reports</span>
             </a>
-        </li>--}}
+        </li>
 
         {{-- Web Contents Navigations --}}
         @if(auth('admin')->user()->isAdmin() || auth('admin')->user()->isSuperAdmin())
@@ -340,7 +358,7 @@
                 </div>
             </li>
 
-       {{-- <li class="nav-item dropright">
+        <li class="nav-item dropright">
             <a class="nav-link @yield('posts-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-rss" title="Posts"></i>
                 <span :class="{'hide': mainSidebarToggled}">Posts</span>
@@ -355,9 +373,9 @@
                 <a href="#" class="dropdown-item @yield('posts-drafts-active')">Drafts</a>
                 <a href="#" class="dropdown-item @yield('posts-all-active')">All</a>
             </div>
-        </li>--}}
+        </li>
 
-            {{--<li class="nav-item dropright">
+            <li class="nav-item dropright">
                 <a class="nav-link @yield('pages-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-file-text-o" title="Pages"></i>
                     <span :class="{'hide': mainSidebarToggled}">Pages</span>
@@ -369,10 +387,10 @@
                     </div>
 
                     <a href="{{ route('admin.pages.create') }}" class="dropdown-item @yield('pages-new-active')">Add New Page</a>
-                    --}}{{--<a href="#" class="dropdown-item @yield('pages-drafts-active')">Drafts</a>--}}{{--
+                    <a href="#" class="dropdown-item @yield('pages-drafts-active')">Drafts</a>
                     <a href="{{ route('admin.pages') }}" class="dropdown-item @yield('pages-all-active')">All Pages</a>
                 </div>
-            </li>--}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link @yield('pages-active')" href="{{ route('admin.pages') }}">
@@ -450,7 +468,7 @@
                 </div>
             </li>
 
-            {{--@can('control-api')
+            @can('control-api')
                 <li class="nav-item dropright">
                     <a class="nav-link @yield('api-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-database" title="Api Agents"></i>
@@ -470,11 +488,11 @@
 
             @if(auth('admin')->user()->isAlpha())
                 <li class="nav-item">
-                    <a class="nav-link @yield('media-active')" href="--}}{{--{{ route('admin.features') }}--}}{{--">
+                    <a class="nav-link @yield('media-active')" href="{{ route('admin.features') }}">
                         <i class="fa fa-universal-access" title="Media Manager"></i> <span :class="{'hide': mainSidebarToggled}">Active Features</span>
                     </a>
                 </li>
-            @endif--}}
+            @endif
         @endif
     </ul>
 </nav>

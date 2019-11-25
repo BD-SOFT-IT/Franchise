@@ -13,6 +13,10 @@ class SellerController extends Controller
 {
     use AuthenticatesUsers;
 
+//    public function __construct() {
+//        $this->middleware(['sellers', 'auth:seller']);
+//    }
+
 
     // Seller Registration Function
     public function processRegistration(Request $request)

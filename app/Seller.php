@@ -1,11 +1,9 @@
 <?php
 
 namespace App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Notifications\AdminResetPasswordNotification;
+
 
 
 class Seller extends Authenticatable
