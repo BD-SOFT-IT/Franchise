@@ -10,6 +10,8 @@ use App\Notifications\AdminResetPasswordNotification;
 
 class Seller extends Authenticatable
 {
+//    use Notifiable;
+//
 //    protected $guard = 'seller';
 
     protected $fillable = [

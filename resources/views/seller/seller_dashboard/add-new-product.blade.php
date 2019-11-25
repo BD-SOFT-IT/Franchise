@@ -23,18 +23,18 @@
                                     <!-- Product Name Section -->
                                     <div class="col">
                                         <input type="hidden" name="seller_id" value="">
-                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Name
+                                        <small id="productName" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>
-                                        <input type="text" name="product_name" class="form-control form-control-sm"
-                                               aria-describedby="emailHelp" placeholder="Product Name">
+                                        <input type="text" name="product_name" class="form-control form-control-sm" id="productName"
+                                               aria-describedby="productName" placeholder="Product Name">
                                     </div>
 
                                     <!-- Brand Name Section started from here -->
                                     <div class="col">
-                                        <small id="emailHelp" class="form-text text-dark mb-1">Brand Name
+                                        <small id="productBrand" class="form-text text-dark mb-1">Brand Name
                                             <span class="text-danger">*</span></small>
-                                        <select name="product_brand" class="form-control form-control-sm" id="emailHelp"
-                                                aria-describedby="emailHelp">
+                                        <select name="product_brand" class="form-control form-control-sm" id="productBrand"
+                                                aria-describedby="productBrand">
                                             @foreach($productBrands as $productBrand)
                                                 <option value="{{ $productBrand->pb_id }}">{{ $productBrand->pb_name.' '.'( '. $productBrand->pb_name_bengali .' )'}}</option>
                                             @endforeach
@@ -46,10 +46,10 @@
                                 <div class="form-row mb-3">
                                     <!-- Category Name Section Started from here -->
                                     <div class="col">
-                                        <small id="emailHelp" class="form-text text-dark mb-1">Categories
+                                        <small id="productCategory" class="form-text text-dark mb-1">Categories
                                             <span class="text-danger">*</span></small>
-                                        <select name="product_category" class="form-control form-control-sm" id="emailHelp"
-                                                aria-describedby="emailHelp">
+                                        <select name="product_category" class="form-control form-control-sm" id="productCategory"
+                                                aria-describedby="productCategory" onblur="setProductCode()">
                                             @foreach($categories as $category)
                                                 <option value="{{ $category->category_id }}">{{ $category->category_title.' '.'( '.$category->category_title_bangla.' )' }}</option>
                                             @endforeach
@@ -62,9 +62,9 @@
                                     <div class="col">
                                         <small id="emailHelp" class="form-text text-dark mb-1">Product Code
                                             <span class="text-danger">*</span></small>
-                                        <input type="text" name="product_code" class="form-control form-control-sm"
+                                        <input type="text" name="product_code" class="form-control form-control-sm" id="productCode"
                                                aria-describedby="emailHelp" placeholder="Auto generate product code"
-                                               >
+                                               readonly>
                                     </div>
                                 </div>
 

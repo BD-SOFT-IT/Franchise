@@ -346,6 +346,38 @@
 <script src="{{ asset('seller_dashboard/dist/js/demo.js') }}"></script>
 <script src="{{ asset('seller_dashboard/dist/js/custom-file-input.js') }}"></script>
 
+{{--<script>--}}
+{{--    $.ajaxSetup({--}}
+{{--        headers: {--}}
+{{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--        }--}}
+{{--    });--}}
 
+{{--    function setProductCode() {--}}
+{{--        var productCategory  = $('#productCategory').val();--}}
+{{--        var productBrand     = $('#productBrand').val();--}}
+{{--        var productName = $('#productName').val();--}}
+{{--        var categoryName = '';--}}
+{{--        $.ajax({--}}
+{{--            url: "seller/add-new-product/"+productCategory+'/'+productBrand,--}}
+{{--            method: "GET",--}}
+{{--            dataType: "JSON",--}}
+{{--            success: function (response) {--}}
+{{--                //console.log(response);--}}
+{{--                var categoryName = response.product_category;--}}
+{{--                var brandName  = response.product_brand;--}}
+{{--                var slicedProductCategory = categoryName.slice(0,3);--}}
+{{--                var finalProductCategory = slicedProductCategory.toUpperCase();--}}
+{{--                var slicedProductBrand = brandName.slice(0,3);--}}
+{{--                var finalProductBrand = slicedProductBrand.toUpperCase();--}}
+{{--                var finalProductName = productName.slice(0,3).toUpperCase();--}}
+{{--                var result = finalProductName+'-'+finalProductBrand+'-'+finalProductCategory+'-'+response.lastProductId;--}}
+{{--                $('#productCode').val(result);--}}
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
+
+
+{{--</script>--}}
 </body>
 </html>

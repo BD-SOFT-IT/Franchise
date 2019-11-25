@@ -8,7 +8,6 @@
 
 //Seller Routes
 Route::group(['prefix' => 'seller'], function (){
-    route::get('pages/seller_dashboard/seller-profile', 'SellerPagesController@profile')->name('seller.dashboard');
     route::get('seller_dashboard/seller-contact', 'SellerPagesController@contact')->name('seller.contact');
     route::get('add-new-product', 'SellerPagesController@addNewProduct')->name('seller.addNewProduct');
     route::get('seller_dashboard/cancel-products', 'SellerPagesController@CanceledProducts')->name('seller.CanceledProducts');
@@ -16,7 +15,10 @@ Route::group(['prefix' => 'seller'], function (){
 
     //Seller Auth Routes
     route::get('login','SellerController@showLoginForm')->name('seller.seller-login');
-    route::post('pages/auth/seller-approval','SellerController@processLogin')->name('seller.test-login');
+    route::post('dashboard','SellerController@processLogin')->name('seller.test-login');
+
+    route::get('dashboard', 'SellerPagesController@profile')->name('seller.dashboard');
+
 
     // Registration processes route section
     route::get('registration', 'SellerPagesController@registration')->name('seller.registration');
