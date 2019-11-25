@@ -19,22 +19,15 @@
     <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/jqvmap/jqvmap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/adminlte.min.css') }}">
     <!-- Data Tables css-->
-    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/datatables.css') }}">
     <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/buttons.bootstrap.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/summernote/summernote-bs4.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/demo.css') }}">
-    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/component.css') }}">
 
     <link rel="stylesheet" href="{{ asset('seller/css/seller_main.css') }}">
 
@@ -336,23 +329,9 @@
 <script src="{{ asset('seller_dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('seller_dashboard/plugins/bootstrap/js/bootstrap.js') }}"></script>
 
-
-<!-- Data Table-->
-<script src="{{ asset('seller_dashboard/dist/js/datatables.js') }}"></script>
 <script src="{{ asset('seller_dashboard/dist/js/buttons.bootstrap.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('seller_dashboard/plugins/chart.js/Chart.min.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('seller_dashboard/plugins/sparklines/sparkline.js') }}"></script>
 
-<!-- JQVMap -->
-<script src="{{ asset('seller_dashboard/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-<script src="{{ asset('seller_dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('seller_dashboard/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('seller_dashbpard/plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('seller_dashbpard/plugins/daterangepicker/daterangepicker.js') }}"></script>
+
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="{{ asset('seller_dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- Summernote -->
@@ -366,19 +345,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('seller_dashboard/dist/js/demo.js') }}"></script>
 <script src="{{ asset('seller_dashboard/dist/js/custom-file-input.js') }}"></script>
-<script>
 
-    $('#productDescription').wysihtml5({
-        "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
-        "emphasis": true, //Italics, bold, etc. Default true
-        "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
-        "html": false, //Button which allows you to edit the generated HTML. Default false
-        "link": true, //Button to insert a link. Default true
-        "image": true, //Button to insert an image. Default true,
-        "color": false, //Button to change color of font
-        "blockquote": true, //Blockquote
-    });
-</script>
 
 </body>
 </html>

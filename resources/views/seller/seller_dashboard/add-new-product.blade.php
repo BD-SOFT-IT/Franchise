@@ -22,6 +22,8 @@
 
                                     <!-- Product Name Section -->
                                     <div class="col">
+{{--                                        {{$seller_id = \App\Seller::all()}}--}}
+{{--                                        <input type="hidden" name="seller_id" value="{{ $seller_id->seller_id }}">--}}
                                         <small id="emailHelp" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>
                                         <input type="text" name="product_title" class="form-control form-control-sm"
@@ -215,7 +217,7 @@
                                              viewBox="0 0 20 17">
                                             <i class="fas fa-cloud-upload-alt"></i>
                                         </svg>
-                                        <span>Choose a file</span>
+                                        <span>Choose one Image or Multiple Images</span>
                                     </label>
                                 </div>
                             </div>
