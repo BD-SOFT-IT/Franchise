@@ -10,7 +10,7 @@
 Route::group(['prefix' => 'seller'], function (){
     route::get('pages/seller_dashboard/seller-profile', 'SellerPagesController@profile')->name('seller.dashboard');
     route::get('seller_dashboard/seller-contact', 'SellerPagesController@contact')->name('seller.contact');
-    route::get('seller_dashboard/add-new-product', 'SellerPagesController@addNewProduct')->name('seller.addNewProduct');
+    route::get('add-new-product', 'SellerPagesController@addNewProduct')->name('seller.addNewProduct');
     route::get('seller_dashboard/cancel-products', 'SellerPagesController@CanceledProducts')->name('seller.CanceledProducts');
     route::get('seller_dashboard/seller-invoice', 'SellerPagesController@getInvoice')->name('seller.invoice');
 
@@ -23,7 +23,7 @@ Route::group(['prefix' => 'seller'], function (){
     route::post('registration','SellerController@processRegistration')->name('seller.registered');
 
     route::get('seller_dashboard/approved-products', 'SellerProductController@allApprovedProducts')->name('seller.allApprovedProducts');
-    route::post('seller_dashboard/add-new-product', 'SellerProductController@processNewProduct')
+    route::post('add-new-product', 'SellerProductController@processNewProduct')
         ->name('seller.addNewProduct');
 
     route::get('seller_dashboard/edit-product/{edit_product_id}','SellerProductController@editProduct')

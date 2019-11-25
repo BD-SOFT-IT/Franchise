@@ -50,10 +50,10 @@ return [
             'driver' => 'jwt',
             'provider' => 'clients',
         ],
-        'seller' => [
-            'driver' => 'session',
-            'provider' => 'sellers',
-        ]
+//        'seller' => [
+//            'driver' => 'session',
+//            'provider' => 'sellers',
+//        ]
     ],
 
     /*
@@ -82,10 +82,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
-        'sellers' => [
-            'driver' => 'eloquent',
-            'model' => App\Seller::class,
-        ]
+//        'sellers' => [
+//            'driver' => 'eloquent',
+//            'model' => App\Seller::class,
+//        ]
 
         // 'users' => [
         //     'driver' => 'database',

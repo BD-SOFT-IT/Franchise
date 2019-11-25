@@ -5,56 +5,61 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\RbtMobileSms\Exception\Exception;
 use App\SellerProduct;
+use App\SellerProductImages;
 use Illuminate\Http\Request;
 
 class SellerProductController extends Controller
 {
     public function processNewProduct(Request $request)
     {
-//        $images = $request->file('product_image_path');
-//        foreach ($images as $image) {
-//            $reImagesName = date('YmdHis') . '.' . time() . '.' . $images->getClientOriginalName();
-//            $dir = './sellers/products';
-//            $images->move($dir, $reImagesName);
-//            $imagesUrl = $dir . $reImagesName;
-//
-//            $newSubImageModel = new newSubImageModel();
-//            $newSubImageModel->product_id = Se
-//        }
+//        Validating Seller Product information
+
+        $r = $this->validate($request, [
+            'product_name' => 'required | max:20 | string',
+            'product_brand' => 'required',
+            'product_category' => 'required | numeric',
+            'product_unit_cost' => 'required | numeric',
+            'product_unit_mrp' => 'required | numeric',
+            'product_unit_stock' => 'required | numeric',
+            'product_description' => 'required | max:1200',
+            'product_availability' => 'required',
+            'product_images' => 'required'
+        ]);
+
+        $sellerProduct = new SellerProduct();
+
+        $sellerProduct->product_name = $request->product_name;
+        $sellerProduct->product_brand = $request->product_brand;
+        $sellerProduct->product_category = $request->product_category;
+        $sellerProduct->product_unit_cost = $request->product_unit_cost;
+        $sellerProduct->product_unit_mrp = $request->product_unit_mrp;
+        $sellerProduct->product_unit_stock = $request->product_unit_stock;
+        $sellerProduct->product_description = $request->product_description;
+        $sellerProduct->product_availability = $request->product_availability;
+        $sellerProduct->product_feature = $request->product_feature;
+        $sellerProduct->product_color = $request->product_color;
+        $sellerProduct->product_size = $request->product_size;
+        $sellerProduct->product_discount = $request->product_discount;
+        $sellerProduct->save();
+
+        $images = $request->file('product_images');
+        foreach ($images as $image) {
+            $reImagesName = date('YmdHis') . '.' . time() . '.' . $image->getClientOriginalName();
+            $dir = './sellerProductImages/products';
+            $image->move($dir, $reImagesName);
+            $imagesPath = $dir . $reImagesName;
+
+            $sellerProductImage = new SellerProductImages();
+            $sellerProductImage->product_id = $sellerProduct->product_id;
+            $sellerProductImage->images_path = $imagesPath;
+            $sellerProductImage->save();
+        }
+        return redirect()->back()->with('success', 'Added Successful!');
+
+    }
 
 
 
-
-
-
-        //Validating Seller Product information
-
-//        $this->validate($request, [
-//            'product_title' => 'required | max:20 | string',
-//            'product_vendor_name' => 'required | max:20',
-//            'product_unit' => 'required | numeric',
-//            'product_unit_cost' => 'required | numeric',
-//            'product_unit_mrp' => 'required | numeric',
-//            'product_description' => 'required | max:1200',
-//            'product_category' => 'required | string',
-//            'product_sub_category' => 'required | string',
-//            'product_unit_stock' => 'required | numeric',
-//            'product_unit_availability' => 'required',
-//            'product_image_path'    => 'required | image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-//        ]);
-
-//        if ($request->hasFile('product_image_path')){
-//            $productImages = $request->file('product_image_path');
-//            $renameProductImage = time() . date('YmdHis'). '.' . $productImages->getClientOriginalExtension();
-//            $destinationPath = public_path('/sellers/products');
-//            $productImages->move($destinationPath, $renameProductImage);
-//
-//            $sellerProduct = new SellerProduct();
-//            $sellerProduct->product_image_path = $renameProductImage;
-//            $sellerProduct->save();
-//
-//            dd($sellerProduct);
-//        }
 
 
 
@@ -87,8 +92,8 @@ class SellerProductController extends Controller
 //
 //        }
 
-        return $request->all();
-    }
+//        return $request->all();
+
 
     public function allApprovedProducts()
     {

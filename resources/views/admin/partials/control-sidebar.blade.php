@@ -50,121 +50,121 @@
         </shopping-cart>
     @endif
 
-    {{--<ul class="nav nav-tabs nav-justified" id="controlSidebarTab" role="tablist">
-        <li class="nav-item" title="Home">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
-                <i class="fa fa-home"></i>
-            </a>
-        </li>
-        <li class="nav-item" title="News">
-            <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">
-                <i class="fa fa-newspaper-o"></i>
-            </a>
-        </li>
-        <li class="nav-item" title="Settings">
-            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">
-                <i class="fa fa-cogs"></i>
-            </a>
-        </li>
-    </ul> --}}{{-- .nav --}}{{--
+{{--    <ul class="nav nav-tabs nav-justified" id="controlSidebarTab" role="tablist">--}}
+{{--        <li class="nav-item" title="Home">--}}
+{{--            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">--}}
+{{--                <i class="fa fa-home"></i>--}}
+{{--            </a>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item" title="News">--}}
+{{--            <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">--}}
+{{--                <i class="fa fa-newspaper-o"></i>--}}
+{{--            </a>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item" title="Settings">--}}
+{{--            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">--}}
+{{--                <i class="fa fa-cogs"></i>--}}
+{{--            </a>--}}
+{{--        </li>--}}
+{{--    </ul>  .nav--}}
 
-    <div class="tab-content" id="controlSidebarTabContent">
-        --}}{{-- Home Tab Content --}}{{--
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+{{--    <div class="tab-content" id="controlSidebarTabContent">--}}
+{{--         Home Tab Content--}}
+{{--        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">--}}
 
-            <div class="card user-information">
-                <div class="card-body text-center">
-                    @if(auth('admin')->user()->img_url)
-                        <img src="{{ auth('admin')->user()->img_url }}" alt="{{ auth('admin')->user()->name }}" class="img-fluid">
-                    @else
-                        <img src="{{ asset('assets/images/user.png') }}" alt="{{ auth('admin')->user()->name }}" class="img-fluid">
-                    @endif
-                    <p>
-                        <span class="admin-name">{{ auth('admin')->user()->name }}</span>
-                        <br>
-                        <span class="admin-role">{{ auth('admin')->user()->role->title }}</span>
-                    </p>
-                    <a href="#" class="edit-profile" title="Edit Profile">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                </div>
-            </div>
+{{--            <div class="card user-information">--}}
+{{--                <div class="card-body text-center">--}}
+{{--                    @if(auth('admin')->user()->img_url)--}}
+{{--                        <img src="{{ auth('admin')->user()->img_url }}" alt="{{ auth('admin')->user()->name }}" class="img-fluid">--}}
+{{--                    @else--}}
+{{--                        <img src="{{ asset('assets/images/user.png') }}" alt="{{ auth('admin')->user()->name }}" class="img-fluid">--}}
+{{--                    @endif--}}
+{{--                    <p>--}}
+{{--                        <span class="admin-name">{{ auth('admin')->user()->name }}</span>--}}
+{{--                        <br>--}}
+{{--                        <span class="admin-role">{{ auth('admin')->user()->role->title }}</span>--}}
+{{--                    </p>--}}
+{{--                    <a href="#" class="edit-profile" title="Edit Profile">--}}
+{{--                        <i class="fa fa-pencil"></i>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <hr>
+{{--            <hr>--}}
 
-            <div class="recent-delivery">
-                <h4>Recent Delivery</h4>
-                <div class="list-unstyled">
-                    <a class="media" href="">
-                        <div class="align-self-center mr-3 delivering">
-                            <i class="fa fa-truck"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">ORD#1805261025</h5>
-                            <p>On Delivery</p>
-                        </div>
-                    </a>
-                    <a class="media" href="">
-                        <div class="align-self-center mr-3 delivered">
-                            <i class="fa fa-check"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">ORD#1805261023</h5>
-                            <p>Delivered</p>
-                        </div>
-                    </a>
-                    <a class="media" href="">
-                        <div class="align-self-center mr-3 canceled">
-                            <i class="fa fa-ban"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">ORD#1805261023</h5>
-                            <p>Delivered</p>
-                        </div>
-                    </a>
-                    <a class="media" href="">
-                        <div class="align-self-center mr-3 delivering">
-                            <i class="fa fa-truck"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">ORD#1805261025</h5>
-                            <p>On Delivery</p>
-                        </div>
-                    </a>
-                    <a class="media" href="">
-                        <div class="align-self-center mr-3 delivered">
-                            <i class="fa fa-check"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">ORD#1805261023</h5>
-                            <p>Delivered</p>
-                        </div>
-                    </a>
-                    <a class="media" href="">
-                        <div class="align-self-center mr-3 canceled">
-                            <i class="fa fa-ban"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="mt-0">ORD#1805261023</h5>
-                            <p>Delivered</p>
-                        </div>
-                    </a>
+{{--            <div class="recent-delivery">--}}
+{{--                <h4>Recent Delivery</h4>--}}
+{{--                <div class="list-unstyled">--}}
+{{--                    <a class="media" href="">--}}
+{{--                        <div class="align-self-center mr-3 delivering">--}}
+{{--                            <i class="fa fa-truck"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">ORD#1805261025</h5>--}}
+{{--                            <p>On Delivery</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a class="media" href="">--}}
+{{--                        <div class="align-self-center mr-3 delivered">--}}
+{{--                            <i class="fa fa-check"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">ORD#1805261023</h5>--}}
+{{--                            <p>Delivered</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a class="media" href="">--}}
+{{--                        <div class="align-self-center mr-3 canceled">--}}
+{{--                            <i class="fa fa-ban"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">ORD#1805261023</h5>--}}
+{{--                            <p>Delivered</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a class="media" href="">--}}
+{{--                        <div class="align-self-center mr-3 delivering">--}}
+{{--                            <i class="fa fa-truck"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">ORD#1805261025</h5>--}}
+{{--                            <p>On Delivery</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a class="media" href="">--}}
+{{--                        <div class="align-self-center mr-3 delivered">--}}
+{{--                            <i class="fa fa-check"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">ORD#1805261023</h5>--}}
+{{--                            <p>Delivered</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a class="media" href="">--}}
+{{--                        <div class="align-self-center mr-3 canceled">--}}
+{{--                            <i class="fa fa-ban"></i>--}}
+{{--                        </div>--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">ORD#1805261023</h5>--}}
+{{--                            <p>Delivered</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
 
-                </div>
-            </div>
+{{--                </div>--}}
+{{--            </div>--}}
 
-        </div>
+{{--        </div>--}}
 
-        --}}{{-- News Tab Content --}}{{--
-        <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
-            News
-        </div>
+{{--         News Tab Content--}}
+{{--        <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">--}}
+{{--            News--}}
+{{--        </div>--}}
 
-        --}}{{-- Settings Tab Content --}}{{--
-        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-            Settings
-        </div>
-    </div> --}}{{-- .tab-content --}}
+{{--         Settings Tab Content--}}
+{{--        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">--}}
+{{--            Settings--}}
+{{--        </div>--}}
+{{--    </div>  .tab-content--}}
 
 </div>
 
