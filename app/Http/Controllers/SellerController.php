@@ -12,6 +12,9 @@ use Hash;
 class SellerController extends Controller
 {
     use AuthenticatesUsers;
+    public function __construct()
+    {
+    }
 
 //    public function __construct() {
 //        $this->middleware(['sellers', 'auth:seller']);
@@ -31,8 +34,8 @@ class SellerController extends Controller
             'shop_district'             => 'required',
             'shop_url'                  => 'required',
             'shop_identity'             => 'required | numeric',
-            'seller_first_name'         => 'required | min:5',
-            'seller_last_name'          => 'required | min:5',
+            'seller_first_name'         => 'required',
+            'seller_last_name'          => 'required',
             'seller_email'              => 'required | email | unique:sellers,seller_email',
             'seller_password'           => 'required | min:6',
             'seller_number'             => 'required | min:11 | max:13',

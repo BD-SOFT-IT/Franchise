@@ -34,6 +34,7 @@ class CreateSellersTable extends Migration
             $table->tinyInteger('is_active')->default('0');
             $table->tinyInteger('is_blocked')->default('1');
             $table->timestamps();
+
         });
     }
 

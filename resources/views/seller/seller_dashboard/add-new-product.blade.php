@@ -24,9 +24,11 @@
                                     <div class="col">
 {{--                                        {{$seller_id = \App\Seller::all()}}--}}
 {{--                                        <input type="hidden" name="seller_id" value="{{ $seller_id->seller_id }}">--}}
+
+                                        <input type="hidden" name="seller_id" value="">
                                         <small id="emailHelp" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>
-                                        <input type="text" name="product_title" class="form-control form-control-sm"
+                                        <input type="text" name="product_name" class="form-control form-control-sm"
                                                aria-describedby="emailHelp" placeholder="Product Name">
                                     </div>
 
@@ -55,6 +57,17 @@
                                                 <option value="{{ $category->category_id }}">{{ $category->category_title.' '.'( '.$category->category_title_bangla.' )' }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-3">
+                                    <!-- Product auto code Section Started from here -->
+                                    <div class="col">
+                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Code
+                                            <span class="text-danger">*</span></small>
+                                        <input type="text" name="product_code" class="form-control form-control-sm"
+                                               aria-describedby="emailHelp" placeholder="Auto generate product code"
+                                               >
                                     </div>
                                 </div>
 
@@ -89,7 +102,9 @@
                                     <div class="col">
                                         <small id="emailHelp" class="form-text text-dark mb-1">Product Description
                                             <span class="text-danger">*</span></small>
-                                        <textarea class="" id="productDescription" placeholder="Enter text ...">
+                                        <textarea name="product_description" class="" id="productDescription"
+                                                  placeholder="Enter text .
+                                        ..">
 
                                         </textarea>
 
@@ -139,7 +154,8 @@
                                 <div class="col mb-4">
                                     <small id="emailHelp" class="form-text text-dark mb-1">Availability Status
                                         <span class="text-danger">*</span></small>
-                                    <select name="product_category" class="form-control form-control-sm" id="emailHelp"
+                                    <select name="product_availability" class="form-control form-control-sm"
+                                            id="emailHelp"
                                             aria-describedby="emailHelp">
                                         <option selected>-- Availability Status --</option>
                                         <option value="In Stock">In Stock</option>
@@ -151,7 +167,8 @@
                                 <!-- Features Product Checkbox started here-->
                                 <div class="col">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="productFeature" name="product_feature">
+                                        <input type="checkbox" class="custom-control-input" id="productFeature"
+                                               name="product_feature">
                                         <label class="custom-control-label" for="productFeature">Do you want take your product into feature?</label>
                                     </div>
                                 </div>

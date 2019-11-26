@@ -15,19 +15,20 @@ class CreateSellerProductsTable extends Migration
     {
         Schema::create('seller_products', function (Blueprint $table) {
             $table->bigIncrements('product_id');
-            $table->string('product_title',30);
-            $table->string('product_description',1200);
+            $table->string('product_name');
+            $table->string('product_brand');
             $table->string('product_category');
-            $table->integer('product_unit');
-            $table->integer('product_unit_cost')->nullable();
+            $table->integer('product_unit_cost');
             $table->integer('product_unit_mrp');
             $table->integer('product_unit_stock');
-            $table->string('product_unit_availability')->default('no');
-            $table->string('product_vendor_name',20);
-            $table->string('product_image_path')->nullable();
-            $table->integer('product_discount')->nullable();
-            $table->integer('product_vat')->nullable();
+            $table->string('product_description');
+            $table->string('product_availability');
+            $table->string('product_feature')->default('no');
+            $table->string('product_color');
+            $table->string('product_size');
+            $table->integer('product_discount');
             $table->timestamps();
+
         });
     }
 
