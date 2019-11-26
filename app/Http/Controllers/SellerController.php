@@ -14,6 +14,7 @@ class SellerController extends Controller
     use AuthenticatesUsers;
     public function __construct()
     {
+
     }
 
 //    public function __construct() {
