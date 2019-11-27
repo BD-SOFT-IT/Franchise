@@ -36,11 +36,11 @@
 
 
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" >
 <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-light border-bottom-0">
+    <nav class="main-header navbar navbar-expand navbar-light navbar-white border-bottom-0">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -156,16 +156,16 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4 text-sm">
+    <aside class="main-sidebar sidebar-light-teal control-sidebar-light text-sm">
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ asset('seller_dashboard/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-                </div>
+            <div class="user-panel mt-3 pb-2 mb-4 d-flex" style="border-bottom: 2px dashed #c1c1c1">
+{{--                <div class="image">--}}
+{{--                    <img src="" class="img-circle elevation-2" alt="User Image">--}}
+{{--                </div>--}}
                 <div class="info">
-                    <a href="#" class="d-block">Dr. Mams</a>
+                    <a href="#" class="d-block">Mr. XYZZAABB</a>
                 </div>
             </div>
 
@@ -187,7 +187,7 @@
                     {{-- Dashboard Section end --}}
 
                     {{-- Product Managment section started--}}
-                    <li class="nav-item has-treeview mb-1">
+                    <li class="nav-item has-treeview mb-1 menu-open">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-box-open"></i>
                             <p>
@@ -197,20 +197,20 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('seller.allApprovedProducts') }}" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href="{{ route('seller.allApprovedProducts') }}" class="nav-link">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
                                     <p>All Products</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('seller.addNewProduct') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
                                     <p>Add New Product </p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('seller.CanceledProducts') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
                                     <p>Canceled Products </p>
                                 </a>
                             </li>
@@ -302,9 +302,9 @@
 
     @yield('productPreview')
 
-    <footer class="main-footer">
+{{--    <footer class="main-footer">--}}
 
-    </footer>
+{{--    </footer>--}}
 
 </div>
 <!-- ./wrapper -->
@@ -318,12 +318,6 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
-    $(document).ready( function () {
-        $('#table_id').DataTable({
-            scrollY: 350,
-            autoWidth: true,
-        });
-    } );
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('seller_dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -346,38 +340,5 @@
 <script src="{{ asset('seller_dashboard/dist/js/demo.js') }}"></script>
 <script src="{{ asset('seller_dashboard/dist/js/custom-file-input.js') }}"></script>
 
-{{--<script>--}}
-{{--    $.ajaxSetup({--}}
-{{--        headers: {--}}
-{{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--        }--}}
-{{--    });--}}
-
-{{--    function setProductCode() {--}}
-{{--        var productCategory  = $('#productCategory').val();--}}
-{{--        var productBrand     = $('#productBrand').val();--}}
-{{--        var productName = $('#productName').val();--}}
-{{--        var categoryName = '';--}}
-{{--        $.ajax({--}}
-{{--            url: "seller/add-new-product/"+productCategory+'/'+productBrand,--}}
-{{--            method: "GET",--}}
-{{--            dataType: "JSON",--}}
-{{--            success: function (response) {--}}
-{{--                //console.log(response);--}}
-{{--                var categoryName = response.product_category;--}}
-{{--                var brandName  = response.product_brand;--}}
-{{--                var slicedProductCategory = categoryName.slice(0,3);--}}
-{{--                var finalProductCategory = slicedProductCategory.toUpperCase();--}}
-{{--                var slicedProductBrand = brandName.slice(0,3);--}}
-{{--                var finalProductBrand = slicedProductBrand.toUpperCase();--}}
-{{--                var finalProductName = productName.slice(0,3).toUpperCase();--}}
-{{--                var result = finalProductName+'-'+finalProductBrand+'-'+finalProductCategory+'-'+response.lastProductId;--}}
-{{--                $('#productCode').val(result);--}}
-{{--            }--}}
-{{--        });--}}
-{{--    }--}}
-
-
-{{--</script>--}}
 </body>
 </html>

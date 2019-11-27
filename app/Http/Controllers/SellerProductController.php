@@ -15,7 +15,7 @@ class SellerProductController extends Controller
     {
 //        Validating Seller Product information
 
-         $this->validate($request, [
+        $this->validate($request, [
             'product_name' => 'required | max:20 | string',
             'product_brand' => 'required',
             'product_category' => 'required | numeric',

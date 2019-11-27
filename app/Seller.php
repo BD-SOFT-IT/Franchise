@@ -8,8 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Seller extends Authenticatable
 {
+<<<<<<< HEAD
 //    use Notifiable;
 //
+=======
+    use Notifiable;
+
+>>>>>>> af96710ba11915a698717442c8307d4860e920c6
     protected $guard = 'seller';
 
     protected $fillable = [

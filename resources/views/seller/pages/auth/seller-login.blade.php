@@ -21,6 +21,7 @@
                     @if(session()->has('errorEmail'))
                         <div class="alert alert-danger">
                             {{ session()->get('errorEmail') }}
+
                         </div>
                     @endif
                         @if(session()->has('errorPassword'))
