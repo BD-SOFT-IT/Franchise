@@ -10,7 +10,7 @@ class Seller extends Authenticatable
 {
 //    use Notifiable;
 //
-//    protected $guard = 'seller';
+    protected $guard = 'seller';
 
     protected $fillable = [
         'seller_email',
@@ -31,7 +31,7 @@ class Seller extends Authenticatable
         'is_blocked',
     ];
 
-//    protected $hidden = [
-//        'seller_password', 'remember_token'
-//    ];
+    protected $hidden = [
+        'seller_password', 'remember_token'
+    ];
 }

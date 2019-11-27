@@ -12,13 +12,23 @@ use Hash;
 class SellerController extends Controller
 {
     use AuthenticatesUsers;
+
     public function __construct()
     {
-
+//        $this->middleware('guest')->except('logout');
     }
 
 //    public function __construct() {
-//        $this->middleware(['sellers', 'auth:seller']);
+//        $this->middleware(['auth:seller']);
+//    }
+
+    protected $redirectTo = '/seller/login';
+
+
+//    public function __construct()
+//    {
+//        $this->middleware(['guest:admin'])->except('logout');
+//        $this->middleware('admin')->only('logout');
 //    }
 
 
@@ -116,4 +126,5 @@ class SellerController extends Controller
 
         return redirect('seller/login');
     }
+
 }

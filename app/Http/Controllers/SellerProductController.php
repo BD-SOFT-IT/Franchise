@@ -7,6 +7,7 @@ use App\RbtMobileSms\Exception\Exception;
 use App\SellerProduct;
 use App\SellerProductImages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SellerProductController extends Controller
 {
@@ -14,7 +15,7 @@ class SellerProductController extends Controller
     {
 //        Validating Seller Product information
 
-        $r = $this->validate($request, [
+         $this->validate($request, [
             'product_name' => 'required | max:20 | string',
             'product_brand' => 'required',
             'product_category' => 'required | numeric',
@@ -23,7 +24,7 @@ class SellerProductController extends Controller
             'product_unit_stock' => 'required | numeric',
             'product_description' => 'required | max:1200',
             'product_availability' => 'required',
-            'product_images' => 'required'
+            'product_images' => 'required | max:5'
         ]);
 
         $sellerProduct = new SellerProduct();
@@ -45,7 +46,7 @@ class SellerProductController extends Controller
         $images = $request->file('product_images');
         foreach ($images as $image) {
             $reImagesName = date('YmdHis') . '.' . time() . '.' . $image->getClientOriginalName();
-            $dir = './sellerProductImages/products';
+            $dir = './sellerProductImages/products/';
             $image->move($dir, $reImagesName);
             $imagesPath = $dir . $reImagesName;
 
@@ -60,82 +61,102 @@ class SellerProductController extends Controller
 
 
 
-
-
-
-
-        //All Validated data stored for transmit in database
-//        $validateProductData = [
-//            'product_title' => $request->input('product_title'),
-//            'product_vendor_name' => $request->input('product_vendor_name'),
-//            'product_unit' => $request->input('product_unit'),
-//            'product_unit_cost' => $request->input('product_unit_cost'),
-//            'product_unit_mrp' => $request->input('product_unit_mrp'),
-//            'product_description' => $request->input('product_description'),
-//            'product_category' => $request->input('product_category'),
-//            'product_sub_category' => $request->input('product_sub_category'),
-//            'product_unit_stock' => $request->input('product_unit_stock'),
-//            'product_unit_availability' => $request->input('product_unit_availability'),
-//            'product_image_path' => $request->input('product_image_path'),
-//        ];
-
-
-        // Storing validate Product information into database
-//        try {
-//            SellerProduct::create($validateProductData);
-//
-//            $this->setSuccessMessage('Congratulations! Your product in the Queue');
-//            return redirect()->route('seller.allApprovedProducts');
-//
-//        } catch (Exception $productInformationException) {
-//            $this->setErrorMessage('Opps! Something missed.');
-//
-//        }
-
-//        return $request->all();
-
-
     public function allApprovedProducts()
     {
         $sellerProducts = SellerProduct::all();
 
-        return view('seller.seller_dashboard.approved-products', compact('sellerProducts'));
+//        $sellerProductImages = SellerProductImages::all();
+
+
+        return view('seller.seller_dashboard.approved-products')->with([
+            'sellerProducts'    => $sellerProducts
+//            'sellerProductImages'   => $sellerProductImages
+        ]);
     }
 
     public function editProduct($edit_product_id)
     {
         $product = SellerProduct::find($edit_product_id);
 
-        return view('seller.seller_dashboard.edit-product', compact('product'));
+        return view('seller.seller_dashboard.edit-product')->with([
+            'product' => $product
+        ]);
     }
 
 
-    public function updateProduct(Request $request)
+    public function updateProduct(Request $request, $edit_product_id)
     {
-        $updateProduct = SellerProduct::find($request->product_id);
+        $updateProduct = SellerProduct::find($edit_product_id);
 
+//        $this->validate($request, [
+//            'product_name' => 'required | max:20 | string',
+//            'product_brand' => 'required',
+//            'product_category' => 'required | numeric',
+//            'product_unit_cost' => 'required | numeric',
+//            'product_unit_mrp' => 'required | numeric',
+//            'product_unit_stock' => 'required | numeric',
+//            'product_description' => 'required | max:1200',
+//            'product_availability' => 'required',
+//            'product_images' => 'required | max:5'
+//        ]);
 
-        $updateProduct->product_title               = $request->product_title;
-        $updateProduct->product_vendor_name         = $request->product_vendor_name;
-        $updateProduct->product_unit                = $request->product_unit;
+        $updateProduct->product_name                = $request->product_name;
+        $updateProduct->product_brand               = $request->product_brand;
+        $updateProduct->product_category            = $request->product_category;
         $updateProduct->product_unit_cost           = $request->product_unit_cost;
         $updateProduct->product_unit_mrp            = $request->product_unit_mrp;
-        $updateProduct->product_description         = $request->product_description;
-        $updateProduct->product_category            = $request->product_category;
-//        $updateProduct->product_sub_category        = $request->product_sub_category;
         $updateProduct->product_unit_stock          = $request->product_unit_stock;
-        $updateProduct->product_unit_availability   = $request->product_unit_availability;
-        $updateProduct->product_image_path          = $request->product_image_path;
+        $updateProduct->product_description         = $request->product_description;
+        $updateProduct->product_availability        = $request->product_availability;
+        $updateProduct->product_feature             = $request->product_feature;
+        $updateProduct->product_color               = $request->product_color;
+        $updateProduct->product_size                = $request->product_size;
+        $updateProduct->product_discount            = $request->product_discount;
 
         $updateProduct->save();
 
+        $images = $request->file('product_images');
+        foreach ($images as $image) {
+            $reImagesName = date('YmdHis') . '.' . time() . '.' . $image->getClientOriginalName();
+            $dir = './sellerProductImages/products/';
+            $image->move($dir, $reImagesName);
+            $imagesPath = $dir . $reImagesName;
 
-        return redirect('seller/seller_dashboard/approved-products');
+            $sellerProductImage = new SellerProductImages();
+            $sellerProductImage->product_id = $updateProduct->product_id;
+            $sellerProductImage->images_path = $imagesPath;
+            $sellerProductImage->save();
+        }
+
+
+        return redirect('seller/seller_dashboard/approved-products')->with([
+            'updateProduct'    => $updateProduct
+        ]);
     }
 
-    public function previewProduct()
+    public function previewProduct($preview_product_id)
     {
-        return view('seller/seller_dashboard/preview-product');
+        $sellerProduct = SellerProduct::find($preview_product_id);
+
+        $sellerProductImage = SellerProductImages::find($preview_product_id);
+
+        $sellerProducts = SellerProduct::all();
+
+//        $sellerProductJoin =  DB::table('seller_products')
+//            ->join('categories', 'seller_products.product_category', '=','categories.category_id')
+//            ->select('seller_products.*', 'categories.*',
+//                    'categories.category_title')
+//            ->get();
+
+
+
+        return view('seller/seller_dashboard/preview-product')->with([
+            'sellerProduct'    => $sellerProduct,
+            'sellerProductImage'   => $sellerProductImage,
+            'sellerProducts'    => $sellerProducts,
+
+//            'sellerProductJoin' => $sellerProductJoin
+        ]);
     }
 
     public function deleteProduct($product_id)
@@ -144,6 +165,17 @@ class SellerProductController extends Controller
 
         //$sellerProduct->delete();
         \DB::table('seller_products')->whereIn('product_id',$sellerProduct)->delete();
+
+        // Delete all images
+//        foreach ($sellerProduct->images as $img) {
+//            // Delete from path
+//            $file_name = $img->images;
+//            if (file_exists("sellerProductImages/products/".$file_name)) {
+//                unlink("sellerProductImages/products/".$file_name);
+//            }
+//
+//            $img->delete();
+//        }
 
         return redirect()->back()->with('productDeleteMessage','Opps! You deleted a valuable product');
     }

@@ -12,7 +12,6 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <!-- Product Information Card started From here -->
-
                         <div class="card">
                             <div class="card-header do-custom-header" style="background-color: #09b360; color: #ffeeee">
                                 <h6 class="text-center text-uppercase">Product Information</h6>

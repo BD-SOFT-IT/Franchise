@@ -31,7 +31,7 @@ Route::group(['prefix' => 'seller'], function (){
     route::get('seller_dashboard/edit-product/{edit_product_id}','SellerProductController@editProduct')
         ->name('seller.editProduct');
 
-    route::post('seller_dashboard/update-product/','SellerProductController@updateProduct')
+    route::post('seller_dashboard/update-product/{edit_product_id}','SellerProductController@updateProduct')
         ->name('seller.updateProduct');
 
     route::get('seller_dashboard/preview-product/{preview_product_id}','SellerProductController@previewProduct')
