@@ -8,27 +8,21 @@
 @section('sellerDashboard')
 
     {{--  Seller Dashboard All Content Started from here --}}
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color: #E0E0E0">
         @if(session()->has('errorMessage'))
             <div class="alert alert-danger">
                 {{ session()->get('errorMessage') }}
             </div>
         @endif
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Dashboard</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+        <div class="content-header mx-2">
+            <div class="container-fluid mt-2" style="background-color: #ffffff;padding: 34px 34px">
+                <div class="row mb-3 mt-3">
+                    <div class="col-lg-12">
+                        <h3>Welcome Seller! Thanks for with us.</h3>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.content-header -->
 
@@ -39,7 +33,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-info">
+                        <div class="small-box" style="background-color: #007bff">
                             <div class="inner">
                                 <h3>
                                     <i class="fas fa-shopping-bag"></i>
@@ -60,7 +54,7 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success">
+                        <div class="small-box" style="background-color: #33BB82">
                             <div class="inner">
                                 <h3>
                                     <i class="fas fa-truck-loading"></i>
@@ -78,7 +72,7 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-warning">
+                        <div class="small-box" style="background-color: #FFC107">
                             <div class="inner">
                                 <h3>
                                     <i class="fas fa-hourglass-start"></i>
@@ -95,7 +89,7 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-danger">
+                        <div class="small-box" style="background-color: #f44336">
                             <div class="inner">
                                 <h3>
                                     <i class="fas fa-window-close"></i>

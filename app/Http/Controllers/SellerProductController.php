@@ -14,7 +14,7 @@ class SellerProductController extends Controller
     {
 //        Validating Seller Product information
 
-        $r = $this->validate($request, [
+        $this->validate($request, [
             'product_name' => 'required | max:20 | string',
             'product_brand' => 'required',
             'product_category' => 'required | numeric',
@@ -58,41 +58,6 @@ class SellerProductController extends Controller
 
     }
 
-
-
-
-
-
-
-        //All Validated data stored for transmit in database
-//        $validateProductData = [
-//            'product_title' => $request->input('product_title'),
-//            'product_vendor_name' => $request->input('product_vendor_name'),
-//            'product_unit' => $request->input('product_unit'),
-//            'product_unit_cost' => $request->input('product_unit_cost'),
-//            'product_unit_mrp' => $request->input('product_unit_mrp'),
-//            'product_description' => $request->input('product_description'),
-//            'product_category' => $request->input('product_category'),
-//            'product_sub_category' => $request->input('product_sub_category'),
-//            'product_unit_stock' => $request->input('product_unit_stock'),
-//            'product_unit_availability' => $request->input('product_unit_availability'),
-//            'product_image_path' => $request->input('product_image_path'),
-//        ];
-
-
-        // Storing validate Product information into database
-//        try {
-//            SellerProduct::create($validateProductData);
-//
-//            $this->setSuccessMessage('Congratulations! Your product in the Queue');
-//            return redirect()->route('seller.allApprovedProducts');
-//
-//        } catch (Exception $productInformationException) {
-//            $this->setErrorMessage('Opps! Something missed.');
-//
-//        }
-
-//        return $request->all();
 
 
     public function allApprovedProducts()

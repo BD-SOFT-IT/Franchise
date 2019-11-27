@@ -14,7 +14,7 @@ class SellerController extends Controller
     use AuthenticatesUsers;
     public function __construct()
     {
-
+//        $this->middleware('guest:seller')->except('logout');
     }
 
 
@@ -98,18 +98,32 @@ class SellerController extends Controller
         {
             return redirect()->back()->with('errorPassword' , 'Opps! Login Failed. Credentials does not match');
         }
-        return view('seller.seller_dashboard.seller-profile');
 
+//        $credentials = $request->only('seller_email','seller_password');
+//        if (Auth::attempt($credentials)){
+//            return redirect()->intended(route('seller.seller-profile'));
+//        }
+
+
+//        if (Auth::attempt($credentials) {
+//            // if successful, then redirect to their intended location
+            return redirect()->intended(route('seller.dashboard'));
+//        }
+//        return redirect()->back();
     }
+
+
 
 
     //Seller Sign out Function
     public function signout(Request $request)
     {
-        $this->guard()->logout();
+//        $this->guard('seller')->logout();
+//
+//        $request->session()->invalidate();
+        Auth::guard('seller')->logout();
 
-        $request->session()->invalidate();
 
-        return redirect('seller/login');
+        return redirect('seller/login')->with('seller', 'Get out');
     }
 }
