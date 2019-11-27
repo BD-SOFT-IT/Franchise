@@ -66,12 +66,9 @@ class SellerProductController extends Controller
     {
         $sellerProducts = SellerProduct::all();
 
-//        $sellerProductImages = SellerProductImages::all();
-
 
         return view('seller.seller_dashboard.approved-products')->with([
             'sellerProducts'    => $sellerProducts
-//            'sellerProductImages'   => $sellerProductImages
         ]);
     }
 
