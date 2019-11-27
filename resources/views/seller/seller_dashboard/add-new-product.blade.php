@@ -170,7 +170,7 @@
                                 <div class="col">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="productFeature"
-                                               name="product_feature">
+                                               name="product_feature" value="yes">
                                         <label class="custom-control-label" for="productFeature">Do you want take your product into feature?</label>
                                     </div>
                                 </div>

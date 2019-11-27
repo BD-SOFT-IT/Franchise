@@ -32,8 +32,8 @@ class SellerController extends Controller
             'seller_last_name'          => 'required',
             'seller_email'              => 'required | email | unique:sellers,seller_email',
             'seller_password'           => 'required | min:6',
-            'seller_number'             => 'required | min:11 | max:13',
-            'seller_alt_number'         => 'required | min:11 | max:13',
+            'seller_number'             => 'required',
+            'seller_alt_number'         => 'required',
             'seller_terms_conditions'   => 'required'
         ]);
 

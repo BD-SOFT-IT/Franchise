@@ -19,13 +19,13 @@
             <div class="login-box mt-3">
                 <div class="card">
                     @if(session()->has('errorEmail'))
-                        <div class="alert alert-danger">
+                        <div class="alert bg-danger">
                             {{ session()->get('errorEmail') }}
 
                         </div>
                     @endif
                         @if(session()->has('errorPassword'))
-                            <div class="alert alert-danger">
+                            <div class="alert bg-danger">
                                 {{ session()->get('errorPassword') }}
                             </div>
                         @endif
