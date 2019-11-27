@@ -47,7 +47,7 @@ class Handler extends ExceptionHandler
 
         if (\Arr::get($exception->guards(), 0) === 'admin') {
             $login = 'bs-admin/login';
-        } else {
+        } else{
             $login = 'login';
         }
 

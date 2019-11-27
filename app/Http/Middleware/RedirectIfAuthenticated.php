@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
             if($guard == 'admin') {
                 return redirect('/bs-admin');
             }
-            return redirect('/account');
+            return redirect('/seller/login');
         }
 
         return $next($request);

@@ -12,7 +12,6 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <!-- Product Information Card started From here -->
-
                         <div class="card">
                             <div class="card-header do-custom-header" style="background-color: #00796b; color: #ffeeee">
                                 <h6 class="text-center text-uppercase">Product Information</h6>
@@ -22,6 +21,9 @@
 
                                     <!-- Product Name Section -->
                                     <div class="col">
+{{--                                        {{$seller_id = \App\Seller::all()}}--}}
+{{--                                        <input type="hidden" name="seller_id" value="{{ $seller_id->seller_id }}">--}}
+
                                         <input type="hidden" name="seller_id" value="">
                                         <small id="smallProductName" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>

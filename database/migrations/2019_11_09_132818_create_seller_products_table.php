@@ -29,6 +29,7 @@ class CreateSellerProductsTable extends Migration
             $table->string('product_size');
             $table->integer('product_discount');
             $table->timestamps();
+
         });
     }
 
