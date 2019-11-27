@@ -31,6 +31,7 @@ class SellerProductController extends Controller
         $sellerProduct->product_name = $request->product_name;
         $sellerProduct->product_brand = $request->product_brand;
         $sellerProduct->product_category = $request->product_category;
+        $sellerProduct->product_code = $request->product_code;
         $sellerProduct->product_unit_cost = $request->product_unit_cost;
         $sellerProduct->product_unit_mrp = $request->product_unit_mrp;
         $sellerProduct->product_unit_stock = $request->product_unit_stock;

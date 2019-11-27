@@ -18,6 +18,7 @@ class CreateSellerProductsTable extends Migration
             $table->string('product_name');
             $table->string('product_brand');
             $table->string('product_category');
+            $table->string('product_code');
             $table->integer('product_unit_cost');
             $table->integer('product_unit_mrp');
             $table->integer('product_unit_stock');
