@@ -8,9 +8,9 @@
         {{-- Products approved page breadcrums section --}}
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-success bold">Approved Products List</h1>
+                <div class="row mb-2" style="background-color: #00796b; color: #ffeeee">
+                    <div class="card-header do-custom-header offset-4">
+                        <h1 class="text-center text-uppercase" >Approved Products List</h1>
                     </div>
                 </div>
             </div>
@@ -33,9 +33,8 @@
             <div class="col-md-12">
                 <div class="card comp-card">
                     <div class="card-body">
-                        <h6 class="text-center">Approved Products List</h6>
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered">
+                        <div class="table-responsive" style="background-color: #e0e0e0">
+                            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">Product Code</th>
@@ -90,6 +89,8 @@
             </div>
         </div>
 
-
     </div>
-    @endsection
+
+@endsection
+
+
