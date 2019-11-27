@@ -27,36 +27,46 @@ class SellerProductController extends Controller
             'product_images' => 'required | max:5'
         ]);
 
-        $sellerProduct = new SellerProduct();
+        try{
+            $sellerProduct = new SellerProduct();
 
-        $sellerProduct->product_name = $request->product_name;
-        $sellerProduct->product_brand = $request->product_brand;
-        $sellerProduct->product_category = $request->product_category;
-        $sellerProduct->product_code = $request->product_code;
-        $sellerProduct->product_unit_cost = $request->product_unit_cost;
-        $sellerProduct->product_unit_mrp = $request->product_unit_mrp;
-        $sellerProduct->product_unit_stock = $request->product_unit_stock;
-        $sellerProduct->product_description = $request->product_description;
-        $sellerProduct->product_availability = $request->product_availability;
-        $sellerProduct->product_feature = $request->product_feature;
-        $sellerProduct->product_color = $request->product_color;
-        $sellerProduct->product_size = $request->product_size;
-        $sellerProduct->product_discount = $request->product_discount;
-        $sellerProduct->save();
+            $sellerProduct->product_name = $request->product_name;
+            $sellerProduct->product_brand = $request->product_brand;
+            $sellerProduct->product_category = $request->product_category;
+            $sellerProduct->product_code = $request->product_code;
+            $sellerProduct->product_unit_cost = $request->product_unit_cost;
+            $sellerProduct->product_unit_mrp = $request->product_unit_mrp;
+            $sellerProduct->product_unit_stock = $request->product_unit_stock;
+            $sellerProduct->product_description = $request->product_description;
+            $sellerProduct->product_availability = $request->product_availability;
+            $sellerProduct->product_feature = $request->product_feature;
+            $sellerProduct->product_color = $request->product_color;
+            $sellerProduct->product_size = $request->product_size;
+            $sellerProduct->product_discount = $request->product_discount;
+            $sellerProduct->save();
 
-        $images = $request->file('product_images');
-        foreach ($images as $image) {
-            $reImagesName = date('YmdHis') . '.' . time() . '.' . $image->getClientOriginalName();
-            $dir = './sellerProductImages/products/';
-            $image->move($dir, $reImagesName);
-            $imagesPath = $dir . $reImagesName;
+            $images = $request->file('product_images');
+            foreach ($images as $image) {
+                $reImagesName = date('YmdHis') . '.' . time() . '.' . $image->getClientOriginalName();
+                $dir = './sellerProductImages/products/';
+                $image->move($dir, $reImagesName);
+                $imagesPath = $dir . $reImagesName;
 
-            $sellerProductImage = new SellerProductImages();
-            $sellerProductImage->product_id = $sellerProduct->product_id;
-            $sellerProductImage->images_path = $imagesPath;
-            $sellerProductImage->save();
+                $sellerProductImage = new SellerProductImages();
+                $sellerProductImage->product_id = $sellerProduct->product_id;
+                $sellerProductImage->images_path = $imagesPath;
+                $sellerProductImage->save();
+            }
+//            $this->setAddProductSuccess($message);
+
+            return redirect()->route('seller.seller-login');
+
+        }catch (Exception $productAddException)
+        {
+//            $this->setAddProductError($message);
+
+//            return redirect()->back();
         }
-        return redirect()->back()->with('success', 'Added Successful!');
 
     }
 
