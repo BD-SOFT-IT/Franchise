@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/adminlte.min.css') }}">
     <!-- Data Tables css-->
     <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/buttons.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/bootstrap.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('seller_dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- summernote -->
@@ -339,6 +341,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('seller_dashboard/dist/js/demo.js') }}"></script>
 <script src="{{ asset('seller_dashboard/dist/js/custom-file-input.js') }}"></script>
+<script src="{{ asset('seller_dashboard/dist/js/jquery-3.3.1.js') }}"></script>
+<script src="{{ asset('seller_dashboard/dist/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('seller_dashboard/dist/js/dataTables.bootstrap4.min.js') }}"></script>
 
 </body>
 </html>

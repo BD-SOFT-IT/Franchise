@@ -1,7 +1,7 @@
 @extends('seller.layouts.seller_dashboard_master')
 @section('allApprovedProducts-title')
     All Approved Products
-    @endsection
+@endsection
 @section('allApprovedProducts')
     <div class="content-wrapper px-1">
 
@@ -33,8 +33,8 @@
             <div class="col-md-12">
                 <div class="card comp-card">
                     <div class="card-body">
-                        <div class="table-responsive" style="background-color: #e0e0e0">
-                            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                        <div class="table-responsive" >
+                            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="background-color: #e0e0e0">
                                 <thead>
                                     <tr>
                                         <th scope="col">SL</th>
@@ -75,7 +75,7 @@
                                                 <a href="{{ route('seller.previewProduct', ['preview_product_id' => $sellerProduct->product_id]) }}" class="btn btn-success btn-sm"
                                                 ><i class="fa fa-eye"></i></a>
 
-                                                <a href="{{ route('seller.editProduct',['edit_product_id' => $sellerProduct->product_id]) }}" class="btn btn-warning btn-sm"
+                                                <a href="{{ route('seller.editProduct',['edit_prod`uct_id' => $sellerProduct->product_id]) }}" class="btn btn-warning btn-sm"
                                                    onclick="return confirm('Really! Do you want to Update Product details?')"><i class="fa fa-pen"></i></a>
 
                                                 <a href="{{ route('seller.deleteProduct',['product_id' => $sellerProduct->product_id ]) }}" class="btn btn-danger btn-sm"
@@ -85,6 +85,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+{{--                            {{ $sellerProducts->links() }}--}}
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
         </div>
 
     </div>
-
 @endsection
+
 
 

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('seller/css/seller_main.css') }}">
     <link href="{{ asset('seller_dashboard/plugins/summernote/summernote-bs4.css/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/datatables.css') }}">
+    <link rel="stylesheet" href="{{ asset('seller_dashboard/dist/css/bootstrap.min.css') }}">
 
 </head>
 <body class="do-seller-regi-homepage">

@@ -78,6 +78,7 @@ class SellerProductController extends Controller
         $sellerProducts = SellerProduct::all();
 
 
+
         return view('seller.seller_dashboard.approved-products')->with([
             'sellerProducts'    => $sellerProducts
         ]);
@@ -162,8 +163,6 @@ class SellerProductController extends Controller
         return view('seller/seller_dashboard/preview-product')->with([
             'sellerProduct'    => $sellerProduct,
             'sellerProductImage'   => $sellerProductImage,
-//            'sellerProducts'    => $sellerProducts,
-
             'sellerProductJoin' => $sellerProductJoin
         ]);
     }
