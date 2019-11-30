@@ -57,15 +57,16 @@ class SellerProductController extends Controller
                 $sellerProductImage->images_path = $imagesPath;
                 $sellerProductImage->save();
             }
+
 //            $this->setAddProductSuccess($message);
 
-            return redirect()->route('seller.seller-login');
+            return redirect()->back();
 
         }catch (Exception $productAddException)
         {
 //            $this->setAddProductError($message);
 
-//            return redirect()->back();
+            return redirect()->route('seller.seller-login');
         }
 
     }
@@ -148,22 +149,22 @@ class SellerProductController extends Controller
 
         $sellerProductImage = SellerProductImages::find($preview_product_id);
 
-        $sellerProducts = SellerProduct::all();
+//        $sellerProducts = SellerProduct::all();
 
-//        $sellerProductJoin =  DB::table('seller_products')
-//            ->join('categories', 'seller_products.product_category', '=','categories.category_id')
-//            ->select('seller_products.*', 'categories.*',
-//                    'categories.category_title')
-//            ->get();
+        $sellerProductJoin =  \DB::table('seller_products')
+            ->join('categories', 'seller_products.product_category', '=','categories.category_id')
+            ->select('seller_products.*',
+                    'categories.category_title')
+            ->get();
 
 
 
         return view('seller/seller_dashboard/preview-product')->with([
             'sellerProduct'    => $sellerProduct,
             'sellerProductImage'   => $sellerProductImage,
-            'sellerProducts'    => $sellerProducts,
+//            'sellerProducts'    => $sellerProducts,
 
-//            'sellerProductJoin' => $sellerProductJoin
+            'sellerProductJoin' => $sellerProductJoin
         ]);
     }
 

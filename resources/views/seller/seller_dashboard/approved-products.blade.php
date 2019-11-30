@@ -37,8 +37,9 @@
                             <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
+                                        <th scope="col">SL</th>
                                         <th scope="col">Product Code</th>
-                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Product Title</th>
                                         <th scope="col">P.U.C.</th>
                                         <th scope="col">MRP</th>
                                         <th scope="col">Stock</th>
@@ -51,16 +52,17 @@
                                 <tbody>
                                     @foreach($sellerProducts as $index => $sellerProduct)
                                         <tr>
-                                            <td>#PLE{{$index+1}}</td>
-                                            <td>
+                                            <td width="40">{{$index+1}}</td>
+                                            <td width="100">{{$sellerProduct->product_code}}</td>
+                                            <td  width="130">
                                                 <a href="{{ route('seller.previewProduct', ['preview_product_id' => $sellerProduct->product_id]) }}">
                                                     {{$sellerProduct->product_name}}
                                                 </a>
                                             </td>
-                                            <td>{{$sellerProduct->product_unit_cost}}</td>
-                                            <td>{{$sellerProduct->product_unit_mrp}}</td>
-                                            <td>{{$sellerProduct->product_unit_stock}}</td>
-                                            <td width="130">{{ $sellerProduct->product_availability }}</td>
+                                            <td width="60">{{$sellerProduct->product_unit_cost}}</td>
+                                            <td width="60">{{$sellerProduct->product_unit_mrp}}</td>
+                                            <td width="60">{{$sellerProduct->product_unit_stock}}</td>
+                                            <td width="60">{{ $sellerProduct->product_availability }}</td>
                                             @php
                                                 $sellerProductImages = \App\SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
                                             @endphp

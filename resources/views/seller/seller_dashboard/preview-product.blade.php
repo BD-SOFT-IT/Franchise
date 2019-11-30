@@ -18,21 +18,7 @@
                         <div class="col-12">
                             <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
                         </div>
-                        @foreach($sellerProducts as $sellerProduct)
-                        <div class="col-12 product-image-thumbs">
-                            @php
-                                $sellerProductImages = \App\SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
-                            @endphp
 
-{{--                            <div class="product-image-thumb active">--}}
-
-                                @foreach($sellerProductImages as $image)
-                                    <img src="{{ asset($image->images_path) }}" width=70 height="70">
-                                @endforeach
-
-{{--                            </div>--}}
-                        </div>
-                        @endforeach
                     </div>
                     <div class="col-12 col-sm-6">
                         <h3 class="my-3">
@@ -83,7 +69,7 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-default text-center">
                                 <input type="radio" name="color_option" id="color_option1" autocomplete="off">
-                                <span class="text-xl">{{ $sellerProduct->product_brand }}</span>
+                                <span class="text-xl">{{ $sellerProductJoin->category_title }}</span>
                                 <br>
                             </label>
                         </div>
