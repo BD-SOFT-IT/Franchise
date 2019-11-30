@@ -59,13 +59,13 @@ class SellerProductController extends Controller
             }
 //            $this->setAddProductSuccess($message);
 
-            return redirect()->route('seller.seller-login');
+            return redirect()->route('seller.allApprovedProducts');
 
         }catch (Exception $productAddException)
         {
 //            $this->setAddProductError($message);
 
-//            return redirect()->back();
+            return redirect()->back();
         }
 
     }
@@ -146,9 +146,9 @@ class SellerProductController extends Controller
     {
         $sellerProduct = SellerProduct::find($preview_product_id);
 
-        $sellerProductImage = SellerProductImages::find($preview_product_id);
+        $sellerProductImage = SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
 
-        $sellerProducts = SellerProduct::all();
+//        $sellerProducts = SellerProduct::all();
 
 //        $sellerProductJoin =  DB::table('seller_products')
 //            ->join('categories', 'seller_products.product_category', '=','categories.category_id')
@@ -159,9 +159,9 @@ class SellerProductController extends Controller
 
 
         return view('seller/seller_dashboard/preview-product')->with([
-            'sellerProduct'    => $sellerProduct,
-            'sellerProductImage'   => $sellerProductImage,
-            'sellerProducts'    => $sellerProducts,
+//            'sellerProduct'    => $sellerProduct,
+            'sellerProductImages'   => $sellerProductImage,
+            'sellerProducts'    => $sellerProduct
 
 //            'sellerProductJoin' => $sellerProductJoin
         ]);

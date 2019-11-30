@@ -18,20 +18,17 @@
                         <div class="col-12">
                             <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
                         </div>
-                        @foreach($sellerProducts as $sellerProduct)
                         <div class="col-12 product-image-thumbs">
-                            @php
-                                $sellerProductImages = \App\SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
-                            @endphp
 
-{{--                            <div class="product-image-thumb active">--}}
 
-                                @foreach($sellerProductImages as $image)
-                                    <img src="{{ asset($image->images_path) }}" width=70 height="70">
-                                @endforeach
+                            @foreach($sellerProductImages as $image)
+                                <img src="{{ asset($image->images_path) }}" width=70 height="70">
+                            @endforeach
 
-{{--                            </div>--}}
+                            {{--                            </div>--}}
                         </div>
+                        @foreach($sellerProducts as $sellerProduct)
+
                         @endforeach
                     </div>
                     <div class="col-12 col-sm-6">

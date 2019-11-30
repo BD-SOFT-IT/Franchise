@@ -79,7 +79,7 @@ class SellerController extends Controller
 
             $registeredSeller = Seller::create($validateSellerInfo);
 
-            $this -> setSuccessMessage('User');
+//            $this -> setSuccessMessage('User');
 
             return redirect()->back();
 
@@ -87,7 +87,7 @@ class SellerController extends Controller
         }
         catch (Exception $sellerRegistrationDataException){
 
-            $this -> setErrorMessage('Opps!');
+//            $this -> setErrorMessage('Opps!');
 
             return redirect()->back();
         }

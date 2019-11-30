@@ -52,7 +52,7 @@
                                 <tbody>
                                     @foreach($sellerProducts as $index => $sellerProduct)
                                         <tr>
-                                            <td>#PLE{{$index+1}}</td>
+                                            <td>{{$sellerProduct->product_code}}</td>
                                             <td>
                                                 <a href="{{ route('seller.previewProduct', ['preview_product_id' => $sellerProduct->product_id]) }}">
                                                     {{$sellerProduct->product_name}}
