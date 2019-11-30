@@ -67,7 +67,7 @@
                                             @php
                                                 $sellerProductImages = \App\SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
                                             @endphp
-                                            <td width="144">
+                                            <td width="100">
                                                 @foreach($sellerProductImages as $image)
                                                     <img src="{{ asset($image->images_path) }}" width=34 height="21">
                                                 @endforeach
