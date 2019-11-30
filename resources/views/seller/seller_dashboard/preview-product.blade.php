@@ -80,7 +80,7 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-default text-center">
                                 <input type="radio" name="color_option" id="color_option1" autocomplete="off">
-                                <span class="text-xl">{{ $sellerProduct->product_brand }}</span>
+                                <span class="text-xl">{{ $sellerProductJoin->category_title }}</span>
                                 <br>
                             </label>
                         </div>

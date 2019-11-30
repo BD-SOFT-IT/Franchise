@@ -13,24 +13,6 @@ class SellerController extends Controller
 {
     use AuthenticatesUsers;
 
-//    public function __construct()
-//    {
-////        $this->middleware('guest')->except('logout');
-////        $this->middleware('guest:seller')->except('logout');
-//    }
-
-//    public function __construct() {
-//        $this->middleware(['auth:seller']);
-//    }
-
-//    protected $redirectTo = '/seller/login';
-
-
-//    public function __construct()
-//    {
-//        $this->middleware(['guest:admin'])->except('logout');
-//        $this->middleware('admin')->only('logout');
-//    }
 
 
     // Seller Registration Function

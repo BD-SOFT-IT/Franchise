@@ -8,9 +8,9 @@
         {{-- Products approved page breadcrums section --}}
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-success bold">Approved Products List</h1>
+                <div class="row mb-2" style="background-color: #00796b; color: #ffeeee">
+                    <div class="card-header do-custom-header offset-4">
+                        <h1 class="text-center text-uppercase" >Approved Products List</h1>
                     </div>
                 </div>
             </div>
@@ -33,13 +33,13 @@
             <div class="col-md-12">
                 <div class="card comp-card">
                     <div class="card-body">
-                        <h6 class="text-center">Approved Products List</h6>
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered">
+                        <div class="table-responsive" style="background-color: #e0e0e0">
+                            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
+                                        <th scope="col">SL</th>
                                         <th scope="col">Product Code</th>
-                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Product Title</th>
                                         <th scope="col">P.U.C.</th>
                                         <th scope="col">MRP</th>
                                         <th scope="col">Stock</th>
@@ -52,16 +52,18 @@
                                 <tbody>
                                     @foreach($sellerProducts as $index => $sellerProduct)
                                         <tr>
-                                            <td>{{$sellerProduct->product_code}}</td>
-                                            <td>
+                                            <td width="40">{{$index+1}}</td>
+                                            <td width="100">{{$sellerProduct->product_code}}</td>
+                                            <td  width="130">
+
                                                 <a href="{{ route('seller.previewProduct', ['preview_product_id' => $sellerProduct->product_id]) }}">
                                                     {{$sellerProduct->product_name}}
                                                 </a>
                                             </td>
-                                            <td>{{$sellerProduct->product_unit_cost}}</td>
-                                            <td>{{$sellerProduct->product_unit_mrp}}</td>
-                                            <td>{{$sellerProduct->product_unit_stock}}</td>
-                                            <td width="130">{{ $sellerProduct->product_availability }}</td>
+                                            <td width="60">{{$sellerProduct->product_unit_cost}}</td>
+                                            <td width="60">{{$sellerProduct->product_unit_mrp}}</td>
+                                            <td width="60">{{$sellerProduct->product_unit_stock}}</td>
+                                            <td width="60">{{ $sellerProduct->product_availability }}</td>
                                             @php
                                                 $sellerProductImages = \App\SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
                                             @endphp
@@ -90,6 +92,8 @@
             </div>
         </div>
 
-
     </div>
-    @endsection
+
+@endsection
+
+

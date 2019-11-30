@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Seller extends Authenticatable
 {
 
+
     protected $guard = 'seller';
 
     protected $fillable = [
