@@ -7,10 +7,16 @@ use App\RbtMobileSms\Exception\Exception;
 use App\SellerProduct;
 use App\SellerProductImages;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SellerProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:seller');
+    }
+
+
     public function processNewProduct(Request $request)
     {
 //        Validating Seller Product information
@@ -24,7 +30,7 @@ class SellerProductController extends Controller
             'product_unit_stock' => 'required | numeric',
             'product_description' => 'required | max:1200',
             'product_availability' => 'required',
-            'product_images' => 'required | max:5'
+            'product_images' => 'required | max:6'
         ]);
 
         try{
@@ -60,13 +66,15 @@ class SellerProductController extends Controller
 
 //            $this->setAddProductSuccess($message);
 
-            return redirect()->back();
+
+            return redirect()->route('seller.allApprovedProducts');
+
 
         }catch (Exception $productAddException)
         {
 //            $this->setAddProductError($message);
 
-            return redirect()->route('seller.seller-login');
+            return redirect()->back();
         }
 
     }
@@ -75,8 +83,7 @@ class SellerProductController extends Controller
 
     public function allApprovedProducts()
     {
-        $sellerProducts = SellerProduct::all();
-
+        $sellerProducts = SellerProduct::paginate(8);
 
 
         return view('seller.seller_dashboard.approved-products')->with([
@@ -148,7 +155,7 @@ class SellerProductController extends Controller
     {
         $sellerProduct = SellerProduct::find($preview_product_id);
 
-        $sellerProductImage = SellerProductImages::find($preview_product_id);
+        $sellerProductImage = SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
 
 //        $sellerProducts = SellerProduct::all();
 
@@ -161,29 +168,34 @@ class SellerProductController extends Controller
 
 
         return view('seller/seller_dashboard/preview-product')->with([
+
             'sellerProduct'    => $sellerProduct,
             'sellerProductImage'   => $sellerProductImage,
             'sellerProductJoin' => $sellerProductJoin
         ]);
     }
 
-    public function deleteProduct($product_id)
+    public function deleteProduct(Request $request, $product_id)
     {
         $sellerProduct = SellerProduct::find($product_id);
+        $sellerProductImages = SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
 
-        //$sellerProduct->delete();
-        \DB::table('seller_products')->whereIn('product_id',$sellerProduct)->delete();
+        foreach ($sellerProductImages as $sellerProductImage){
+            $deleteFromFolder = $sellerProductImage->images_path;
 
-        // Delete all images
-//        foreach ($sellerProduct->images as $img) {
-//            // Delete from path
-//            $file_name = $img->images;
-//            if (file_exists("sellerProductImages/products/".$file_name)) {
-//                unlink("sellerProductImages/products/".$file_name);
-//            }
-//
-//            $img->delete();
-//        }
+            if (file_exists($deleteFromFolder)){
+                unlink($deleteFromFolder);
+            }
+        }
+
+        $sellerProductImagess = SellerProductImages::find($product_id);
+        foreach ($sellerProductImagess as $seller) {
+            $seller->delete();
+        }
+
+
+        $sellerProduct->delete();
+
 
         return redirect()->back()->with('productDeleteMessage','Opps! You deleted a valuable product');
     }

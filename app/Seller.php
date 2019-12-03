@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Notifications\Notifiable;
 
 
 class Seller extends Authenticatable
 {
 
-//    use Notifiable;
+    use Notifiable;
 
     protected $guard = 'seller';
+
+    protected $primaryKey = 'seller_id';
 
     protected $fillable = [
         'seller_email',

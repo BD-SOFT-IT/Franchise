@@ -55,6 +55,7 @@
                                             <td width="40">{{$index+1}}</td>
                                             <td width="100">{{$sellerProduct->product_code}}</td>
                                             <td  width="130">
+
                                                 <a href="{{ route('seller.previewProduct', ['preview_product_id' => $sellerProduct->product_id]) }}">
                                                     {{$sellerProduct->product_name}}
                                                 </a>
@@ -66,7 +67,7 @@
                                             @php
                                                 $sellerProductImages = \App\SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
                                             @endphp
-                                            <td width="144">
+                                            <td width="100">
                                                 @foreach($sellerProductImages as $image)
                                                     <img src="{{ asset($image->images_path) }}" width=34 height="21">
                                                 @endforeach
@@ -85,7 +86,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-{{--                            {{ $sellerProducts->links() }}--}}
+                            {{ $sellerProducts->links() }}
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,18 @@
                         <div class="col-12">
                             <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
                         </div>
+                        <div class="col-12 product-image-thumbs">
 
+
+                            @foreach($sellerProductImages as $image)
+                                <img src="{{ asset($image->images_path) }}" width=70 height="70">
+                            @endforeach
+
+                            {{--                            </div>--}}
+                        </div>
+                        @foreach($sellerProducts as $sellerProduct)
+
+                        @endforeach
                     </div>
                     <div class="col-12 col-sm-6">
                         <h3 class="my-3">

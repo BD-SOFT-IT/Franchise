@@ -78,6 +78,7 @@ class Kernel extends HttpKernel
         'xauth' => \App\Http\Middleware\XAuthorizationHeader::class,
         'clientAuth' => \App\Http\Middleware\ClientApiAuth::class,
         'query' => \App\Http\Middleware\CheckRequestQuery::class,
+        'seller' => \App\Http\Middleware\RedirectIfSeller::class,
     ];
 
     /**

@@ -167,8 +167,8 @@
 {{--                    <img src="" class="img-circle elevation-2" alt="User Image">--}}
 {{--                </div>--}}
                 <div class="info">
-                    <a href="#" class="d-block">Mr. XYZZAABB</a>
-                </div>
+
+
             </div>
 
             <!-- Sidebar Menu -->

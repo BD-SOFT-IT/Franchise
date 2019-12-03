@@ -24,7 +24,8 @@ Route::group(['prefix' => 'seller'], function (){
     route::get('registration', 'SellerPagesController@registration')->name('seller.registration');
     route::post('registration','SellerController@processRegistration')->name('seller.registered');
 
-    route::get('seller_dashboard/approved-products', 'SellerProductController@allApprovedProducts')->name('seller.allApprovedProducts');
+    route::get('seller_dashboard/approved-products', 'SellerProductController@allApprovedProducts')
+        ->name('seller.allApprovedProducts');
     route::post('add-new-product', 'SellerProductController@processNewProduct')
         ->name('seller.addNewProduct');
 
@@ -37,7 +38,8 @@ Route::group(['prefix' => 'seller'], function (){
     route::get('seller_dashboard/preview-product/{preview_product_id}','SellerProductController@previewProduct')
         ->name('seller.previewProduct');
 
-    route::get('seller_dashboard/delete-product/{product_id}','SellerProductController@deleteProduct')->name('seller.deleteProduct');
+    route::get('seller_dashboard/delete-product/{product_id}','SellerProductController@deleteProduct')
+        ->name('seller.deleteProduct');
 
 
     route::get('pages/auth/seller-logout','SellerController@signout')->name('seller.signout');

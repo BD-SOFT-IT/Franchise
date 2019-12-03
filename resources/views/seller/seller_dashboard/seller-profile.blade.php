@@ -6,7 +6,7 @@
 @endsection
 
 @section('sellerDashboard')
-
+{{--    {{dd( Auth::user()->seller_first_name) }}--}}
     {{--  Seller Dashboard All Content Started from here --}}
     <div class="content-wrapper" style="background-color: #E0E0E0">
         @if(session()->has('errorMessage'))
@@ -19,7 +19,7 @@
             <div class="container-fluid mt-2" style="background-color: #ffffff;padding: 34px 34px">
                 <div class="row mb-3 mt-3">
                     <div class="col-lg-12">
-                        <h3>Welcome Seller! Thanks for with us.</h3>
+                        <h3>Welcome Seller! {{  Auth::user()->seller_first_name }}Thanks for with us.</h3>
                     </div>
                 </div>
             </div>

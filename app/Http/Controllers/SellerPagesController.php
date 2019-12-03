@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Auth;
 class SellerPagesController extends Controller
 {
 
-//    public function __construct() {
-//        $this->middleware(['auth:seller']);
-//    }
+
+    public function __construct()
+    {
+        $this->middleware('auth:seller');
+    }
+
 
     public function profile()
     {

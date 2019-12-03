@@ -8,11 +8,16 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
+use Illuminate\Support\Facades\Input;
 
 class SellerController extends Controller
 {
-    use AuthenticatesUsers;
+//    use AuthenticatesUsers;
 
+//    public function __construct()
+//    {
+//        $this->middleware('auth:seller')->except('loqout');
+//    }
 
 
     // Seller Registration Function
@@ -85,28 +90,42 @@ class SellerController extends Controller
     // Seller Login Process Functionality
     public function processLogin(Request $request)
     {
-        $seller = \DB::table('sellers')->where('seller_email','=',$request->input('seller_email'))->first();
+        $seller = Seller::where('seller_email', $request->get('seller_email'))
+            ->first();
 
-        if (!$seller)
-        {
-            return redirect()->back()->with('errorEmail' , 'Opps! We could not find you E-mail in our record Seller');
-        }
-        if (!Hash::check($request->input('seller_password'),$seller->seller_password))
-        {
-            return redirect()->back()->with('errorPassword' , 'Opps! Login Failed. Credentials does not match');
+
+        if ($seller === null) {
+            return redirect()->back()->withInput();
         }
 
-//        $credentials = $request->only('seller_email','seller_password');
-//        if (Auth::attempt($credentials)){
-//            return redirect()->intended(route('seller.seller-profile'));
-//        }
+        // Check has password
+        if (!Hash::check($request->input('seller_password'), $seller->seller_password)) {
+            return redirect()->back()->withInput();
+        }
+
+        Auth::guard('seller')->loginUsingId($seller->seller_id);
 
 
-//        if (Auth::attempt($credentials) {
-//            // if successful, then redirect to their intended location
-            return redirect()->intended(route('seller.dashboard'));
+        return redirect()->intended(route('seller.dashboard'));
+
+
+//        return redirect()->intended(route('seller.dashboard'));
+
+//        $seller = \DB::table('sellers')->where('seller_email','=',$request->input('seller_email'))->first();
+//
+//        if (!$seller) {
+//            return redirect()->back();
 //        }
-//        return redirect()->back();
+//            if (Auth::guard('seller') && Hash::check($request->input('seller_password'), $seller->seller_password)) {
+//
+//                return redirect()->route('seller.dashboard');
+//
+//            }
+//            else
+//            {
+//                return redirect()->back();
+//            }
+
     }
 
 

@@ -1,5 +1,7 @@
 @extends('seller.layouts.seller_dashboard_master')
 
+
+
 @section('addNewProduct-title')
     New Product
 @endsection
@@ -100,18 +102,21 @@
                                 </div>
 
                                 <!-- Product Description Started From Here -->
-                                <div class="form-row mb-3 do-border">
-                                    <div class="col">
-                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Description
-                                            <span class="text-danger">*</span></small>
-                                        <textarea name="product_description" class="" id="productDescription"
-                                                  placeholder="Enter text .
-                                        ..">
+{{--                                <div class="form-row mb-3 do-border">--}}
+{{--                                    <div class="col">--}}
+{{--                                        <small id="emailHelp" class="form-text text-dark mb-1">Product Description--}}
+{{--                                            <span class="text-danger">*</span></small>--}}
+{{--                                        <textarea name="product_description" class="" id="productDescription"--}}
+{{--                                                  placeholder="Enter text .--}}
+{{--                                        ..">--}}
 
-                                        </textarea>
+{{--                                        </textarea>--}}
 
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                                <textarea name="product_description" class="description" id="description"></textarea>
+
+
 
                             </div>
                         </div>
@@ -276,6 +281,17 @@
                 //         var result = finalProductName+'-'+finalProductBrand+'-'+finalProductCategory+'-';
                 //         $('#productCode').val(result);
                     }
+        </script>
+
+        <script src="https://cdn.tiny.cloud/1/hvaoo5hf8eytabsnyhwnyfaetg93s0rc17d5ea5jd0rlwvfn/tinymce/5/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                forced_root_block : "",
+                selector:'textarea.description',
+                width: 570,
+                height: 300,
+            });
+
         </script>
     </div>
 
