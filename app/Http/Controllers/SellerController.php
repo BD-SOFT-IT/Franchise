@@ -81,6 +81,12 @@ class SellerController extends Controller
     }
 
 
+    public function registration()
+    {
+        return view('seller.pages.auth.seller-registration');
+    }
+
+
     // Seller Show login form
     public function showLoginForm()
     {
@@ -90,6 +96,7 @@ class SellerController extends Controller
     // Seller Login Process Functionality
     public function processLogin(Request $request)
     {
+
         $seller = Seller::where('seller_email', $request->get('seller_email'))
             ->first();
 
@@ -135,7 +142,7 @@ class SellerController extends Controller
     public function signout(Request $request)
     {
 //        $this->guard('seller')->logout();
-//
+
 //        $request->session()->invalidate();
         Auth::guard('seller')->logout();
 

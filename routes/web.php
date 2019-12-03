@@ -21,7 +21,7 @@ Route::group(['prefix' => 'seller'], function (){
 
 
     // Registration processes route section
-    route::get('registration', 'SellerPagesController@registration')->name('seller.registration');
+    route::get('registration', 'SellerController@registration')->name('seller.registration');
     route::post('registration','SellerController@processRegistration')->name('seller.registered');
 
     route::get('seller_dashboard/approved-products', 'SellerProductController@allApprovedProducts')

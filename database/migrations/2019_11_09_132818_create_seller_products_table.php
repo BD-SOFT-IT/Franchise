@@ -15,6 +15,7 @@ class CreateSellerProductsTable extends Migration
     {
         Schema::create('seller_products', function (Blueprint $table) {
             $table->bigIncrements('product_id');
+//            $table->unsignedBigInteger('bd_seller_id');
             $table->string('product_name')->unique();
             $table->string('product_brand');
             $table->string('product_category');
@@ -29,6 +30,9 @@ class CreateSellerProductsTable extends Migration
             $table->string('product_size')->nullable();
             $table->integer('product_discount')->nullable();
             $table->timestamps();
+
+
+//            $table->foreign('bd_seller_id')->references('seller_id')->on('sellers');
 
         });
     }

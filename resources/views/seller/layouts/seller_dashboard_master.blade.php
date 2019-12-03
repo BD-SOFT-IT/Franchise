@@ -168,6 +168,10 @@
 {{--                </div>--}}
                 <div class="info">
 
+                    <h3>{{  Auth::user()->seller_first_name . ' ' . Auth::user()->seller_last_name }}</h3>
+
+                </div>
+
 
             </div>
 

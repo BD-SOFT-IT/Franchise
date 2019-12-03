@@ -35,10 +35,7 @@ class SellerPagesController extends Controller
             'sellerProduct'   => $sellerProduct
         ]);
     }
-    public function registration()
-    {
-        return view('seller.pages.auth.seller-registration');
-    }
+
     public function contact()
     {
         return view('seller.seller_dashboard.seller-contact');

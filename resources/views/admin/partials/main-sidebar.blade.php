@@ -46,9 +46,9 @@
                 <div class="dropdown-item hidden-menu-title" v-if="mainSidebarToggled">
                     Orders
                 </div>
-                {{--@can('create-order')
+                @can('create-order')
                     <a href="{{ route('admin.orders.create') }}" class="dropdown-item @yield('orders-create-active')">Create New Order</a>
-                @endcan--}}
+                @endcan
                 <a href="{{ route('admin.orders.pending') }}" class="dropdown-item @yield('orders-pending-active')">
                     Pending Orders <span class="badge badge-warning pending-orders-count">{{ getOrderSummary()->pending }}</span>
                 </a>

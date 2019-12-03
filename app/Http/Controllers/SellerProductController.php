@@ -188,10 +188,10 @@ class SellerProductController extends Controller
             }
         }
 
-        $sellerProductImagess = SellerProductImages::find($product_id);
-        foreach ($sellerProductImagess as $seller) {
-            $seller->delete();
-        }
+//        $sellerProductImagess = SellerProductImages::find($product_id);
+//        foreach ($sellerProductImagess as $seller) {
+//            $seller->delete();
+//        }
 
 
         $sellerProduct->delete();
