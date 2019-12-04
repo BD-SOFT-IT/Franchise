@@ -52,7 +52,7 @@ Route::group(['prefix' => 'seller'], function (){
 
 // Client Routes
 
-Route::get('sitemap.xml', 'SitemapController@siteMap')->name('sitemap');
+//Route::get('sitemap.xml', 'SitemapController@siteMap')->name('sitemap');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@loginOrRegister');

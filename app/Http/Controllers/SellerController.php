@@ -113,25 +113,22 @@ class SellerController extends Controller
         Auth::guard('seller')->loginUsingId($seller->seller_id);
 
 
-        return redirect()->intended(route('seller.dashboard'));
-
-
-//        return redirect()->intended(route('seller.dashboard'));
 
 //        $seller = \DB::table('sellers')->where('seller_email','=',$request->input('seller_email'))->first();
 //
-//        if (!$seller) {
-//            return redirect()->back();
+//        if (!$seller)
+//        {
+//            return redirect()->back()->with('errorEmail' , 'Opps! We could not find you E-mail in our record Seller');
 //        }
-//            if (Auth::guard('seller') && Hash::check($request->input('seller_password'), $seller->seller_password)) {
-//
-//                return redirect()->route('seller.dashboard');
-//
-//            }
-//            else
-//            {
-//                return redirect()->back();
-//            }
+//        if (!Hash::check($request->input('seller_password'),$seller->seller_password))
+//        {
+//            return redirect()->back()->with('errorPassword' , 'Opps! Login Failed. Credentials does not match');
+//        }
+
+
+
+          return redirect()->intended(route('seller.dashboard'));
+
 
     }
 

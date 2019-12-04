@@ -23,9 +23,6 @@
 
                                     <!-- Product Name Section -->
                                     <div class="col">
-{{--                                        {{$seller_id = \App\Seller::all()}}--}}
-{{--                                        <input type="hidden" name="seller_id" value="{{ $seller_id->seller_id }}">--}}
-
                                         <input type="hidden" name="seller_id" value="">
                                         <small id="smallProductName" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>
@@ -269,17 +266,6 @@
                 document.getElementById('productCode').value = finalProductName +'-'+getBrandName+'-'+getCategoryName;
 
 
-
-                // var productName = $('#productName').val();
-                // var productCategory  = $('#productCategory').val();
-                // var productBrand     = $('#productBrand').val();
-                //         var slicedProductCategory = categoryName.slice(0,3);
-                //         var finalProductCategory = slicedProductCategory.toUpperCase();
-                //         var slicedProductBrand = brandName.slice(0,3);
-                //         var finalProductBrand = slicedProductBrand.toUpperCase();
-                //         var finalProductName = productName.slice(0,3).toUpperCase();
-                //         var result = finalProductName+'-'+finalProductBrand+'-'+finalProductCategory+'-';
-                //         $('#productCode').val(result);
                     }
         </script>
 
@@ -294,6 +280,5 @@
 
         </script>
     </div>
-
 @endsection
 

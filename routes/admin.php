@@ -6,7 +6,7 @@
 
 Route::middleware(['auth:admin', 'admin'])->group(function() {
     Route::get('test', function () {
-        dd(\App\Models\Client::count());
+//        dd(\App\Models\Client::count());
     });
     /* *************              Shop Management Routes              ************* */
     // Admin Dashboard Route
