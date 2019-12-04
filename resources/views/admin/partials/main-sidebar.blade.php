@@ -208,7 +208,7 @@
             <li class="nav-item dropright">
                 <a class="nav-link @yield('franchise-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-handshake-o" title="Franchise"></i>
-                    <span :class="{'hide': mainSidebarToggled}">Franchise</span>
+                    <span :class="{'hide': mainSidebarToggled}">Merchant</span>
                     <span class="pull-right"><i class="fa fa-angle-right"></i></span>
                 </a>
                 <div class="dropdown-menu">
@@ -216,27 +216,11 @@
                         Franchise
                     </div>
 
-                    <a href="{{ route('admin.franchise-control.add') }}" class="dropdown-item @yield('franchise-new-active')">Add New Franchise</a>
-                    <a href="{{ route('admin.franchise-control.all') }}" class="dropdown-item @yield('franchise-all-active')">All Franchises</a>
+                    <a href="{{ route('admin.franchise-control.add') }}" class="dropdown-item @yield('franchise-new-active')">All Products</a>
+                    <a href="{{ route('admin.franchise-control.all') }}" class="dropdown-item @yield('franchise-all-active')">All Merchant</a>
                 </div>
             </li>
 
-            {{-- Seller Link --}}
-            <li class="nav-item dropright">
-                <a class="nav-link @yield('franchise-active') dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-handshake-o" title="Franchise"></i>
-                    <span :class="{'hide': mainSidebarToggled}">Seller</span>
-                    <span class="pull-right"><i class="fa fa-angle-right"></i></span>
-                </a>
-                <div class="dropdown-menu">
-                    <div class="dropdown-item hidden-menu-title" v-if="mainSidebarToggled">
-                        Seller
-                    </div>
-
-                    <a href="{{ route('admin.franchise-control.add') }}" class="dropdown-item @yield('franchise-new-active')">All Seller List</a>
-                    <a href="{{ route('admin.franchise-control.all') }}" class="dropdown-item @yield('franchise-all-active')">All Seller Request List</a>
-                </div>
-            </li>
 
             {{-- Expenses Link --}}
             <li class="nav-item dropright">
