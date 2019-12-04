@@ -85,26 +85,27 @@ class SellerController extends Controller
     // Seller Login Process Functionality
     public function processLogin(Request $request)
     {
-        $seller = \DB::table('sellers')->where('seller_email','=',$request->input('seller_email'))->first();
-
-        if (!$seller)
-        {
-            return redirect()->back()->with('errorEmail' , 'Opps! We could not find you E-mail in our record Seller');
-        }
-        if (!Hash::check($request->input('seller_password'),$seller->seller_password))
-        {
-            return redirect()->back()->with('errorPassword' , 'Opps! Login Failed. Credentials does not match');
-        }
-
-//        $credentials = $request->only('seller_email','seller_password');
-//        if (Auth::attempt($credentials)){
-//            return redirect()->intended(route('seller.seller-profile'));
+//        $seller = \DB::table('sellers')->where('seller_email','=',$request->input('seller_email'))->first();
+//
+//        if (!$seller)
+//        {
+//            return redirect()->back()->with('errorEmail' , 'Opps! We could not find you E-mail in our record Seller');
 //        }
+//        if (!Hash::check($request->input('seller_password'),$seller->seller_password))
+//        {
+//            return redirect()->back()->with('errorPassword' , 'Opps! Login Failed. Credentials does not match');
+//        }
+
+        $credentials = $request->only('seller_email','seller_password');
+        if (Auth::attempt($credentials)){
+            return redirect()->intended(route('seller.dashboard'));
+
+        }
+        return redirect()->intended(route('seller.login'));
 
 
 //        if (Auth::attempt($credentials) {
 //            // if successful, then redirect to their intended location
-            return redirect()->intended(route('seller.dashboard'));
 //        }
 //        return redirect()->back();
     }

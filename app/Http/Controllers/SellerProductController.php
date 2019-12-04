@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\ProductBrand;
 use App\RbtMobileSms\Exception\Exception;
 use App\SellerProduct;
 use App\SellerProductImages;
@@ -86,10 +88,14 @@ class SellerProductController extends Controller
 
     public function editProduct($edit_product_id)
     {
-        $product = SellerProduct::find($edit_product_id);
+        $products = SellerProduct::find($edit_product_id);
+        $categories = Category::all();
+        $productBrands = ProductBrand::all();
 
         return view('seller.seller_dashboard.edit-product')->with([
-            'product' => $product
+            'product'       => $products,
+            'category'      => $categories,
+            'productBrand'      => $productBrands
         ]);
     }
 
@@ -150,21 +156,18 @@ class SellerProductController extends Controller
 
         $sellerProductImage = SellerProductImages::where('product_id', $sellerProduct->product_id)->get();
 
-//        $sellerProducts = SellerProduct::all();
-
-        $sellerProductJoin =  \DB::table('seller_products')
-            ->join('categories', 'seller_products.product_category', '=','categories.category_id')
-            ->select('seller_products.*',
-                    'categories.category_title')
-            ->get();
+//        $sellerProductJoin =  \DB::table('seller_products')
+//            ->join('categories', 'seller_products.product_category', '=','categories.category_id')
+//            ->select('seller_products.*',
+//                    'categories.category_title')
+//            ->get();
 
 
 
         return view('seller/seller_dashboard/preview-product')->with([
 
-            'sellerProduct'    => $sellerProduct,
-            'sellerProductImages'   => $sellerProductImage,
-            'sellerProductJoin' => $sellerProductJoin
+            'sellerProduct'         => $sellerProduct,
+            'sellerProductImages'   => $sellerProductImage
         ]);
     }
 
@@ -180,12 +183,6 @@ class SellerProductController extends Controller
                 unlink($deleteFromFolder);
             }
         }
-
-        $sellerProductImagess = SellerProductImages::find($product_id);
-        foreach ($sellerProductImagess as $seller) {
-            $seller->delete();
-        }
-
 
         $sellerProduct->delete();
 

@@ -5,38 +5,38 @@
 @endsection
 
 @section('editProduct')
-    <div class="content-wrapper">
-        <form action="{{route('seller.updateProduct', $product ) }}" method="post" enctype="multipart/form-data">
+    <div class="content-wrapper" >
+        <form action="{{ route('seller.updateProduct', $product) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="container mt-2">
                 <div class="row">
                     <div class="col-lg-7">
                         <!-- Product Information Card started From here -->
                         <div class="card">
-                            <div class="card-header do-custom-header" style="background-color: #09b360; color: #ffeeee">
+                            <div class="card-header do-custom-header" style="background-color: #00796b; color: #ffeeee">
                                 <h6 class="text-center text-uppercase">Product Information</h6>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e0e0e0">
                                 <div class="form-row mb-3">
 
                                     <!-- Product Name Section -->
                                     <div class="col">
-                                        {{--                                        {{$seller_id = \App\Seller::all()}}--}}
-                                        {{--                                        <input type="hidden" name="seller_id" value="{{ $seller_id->seller_id }}">--}}
-
                                         <input type="hidden" name="seller_id" value="">
-                                        <small id="productName" class="form-text text-dark mb-1">Product Name
+                                        <small id="smallProductName" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>
-                                        <input type="text" name="product_name" class="form-control form-control-sm" id="productName"
-                                               aria-describedby="productName" placeholder="Product Name">
+                                        <input type="text" name="product_name" class="form-control form-control-sm"
+                                               id="productName"
+                                               aria-describedby="smallProductName" placeholder="Product Name"
+                                        value="{{$product->product_name}}">
                                     </div>
 
                                     <!-- Brand Name Section started from here -->
                                     <div class="col">
-                                        <small id="productBrand" class="form-text text-dark mb-1">Brand Name
+                                        <small id="smallProductBrand" class="form-text text-dark mb-1">Brand Name
                                             <span class="text-danger">*</span></small>
-                                        <select name="product_brand" class="form-control form-control-sm" id="productBrand"
-                                                aria-describedby="productBrand">
+                                        <select name="product_brand" class="form-control form-control-sm"
+                                                id="productBrand"
+                                                aria-describedby="smallProductBrand">
 {{--                                            @foreach($productBrands as $productBrand)--}}
 {{--                                                <option value="{{ $productBrand->pb_id }}">{{ $productBrand->pb_name.' '.'( '. $productBrand->pb_name_bengali .' )'}}</option>--}}
 {{--                                            @endforeach--}}
@@ -48,10 +48,11 @@
                                 <div class="form-row mb-3">
                                     <!-- Category Name Section Started from here -->
                                     <div class="col">
-                                        <small id="productCategory" class="form-text text-dark mb-1">Categories
+                                        <small id="smallProductCategory" class="form-text text-dark mb-1">Categories
                                             <span class="text-danger">*</span></small>
-                                        <select name="product_category" class="form-control form-control-sm" id="productCategory"
-                                                aria-describedby="productCategory" onblur="setProductCode()">
+                                        <select name="product_category" class="form-control form-control-sm"
+                                                id="productCategory"
+                                                aria-describedby="smallProductCategory" onblur="setProductCode()">
 {{--                                            @foreach($categories as $category)--}}
 {{--                                                <option value="{{ $category->category_id }}">{{ $category->category_title.' '.'( '.$category->category_title_bangla.' )' }}</option>--}}
 {{--                                            @endforeach--}}
@@ -66,7 +67,7 @@
                                             <span class="text-danger">*</span></small>
                                         <input type="text" name="product_code" class="form-control form-control-sm" id="productCode"
                                                aria-describedby="emailHelp" placeholder="Auto generate product code"
-                                               readonly>
+                                               readonly value="{{$product->product_code}}">
                                     </div>
                                 </div>
 
@@ -76,7 +77,9 @@
                                         <small id="emailHelp" class="form-text text-dark mb-1">Per Unit Cost
                                             <span class="text-danger">*</span></small>
                                         <input type="text" name="product_unit_cost" class="form-control form-control-sm"
-                                               aria-describedby="emailHelp" placeholder="Unit Cost">
+                                               aria-describedby="emailHelp" placeholder="Unit Cost" value="{{
+                                               $product->product_unit_cost
+                                               }}">
                                     </div>
 
                                     <!-- Unit MRP Input Started From here -->
@@ -84,7 +87,8 @@
                                         <small id="emailHelp" class="form-text text-dark mb-1">Unit MRP
                                             <span class="text-danger">*</span></small>
                                         <input type="text" name="product_unit_mrp" class="form-control form-control-sm"
-                                               aria-describedby="emailHelp" placeholder="Unit MRP">
+                                               aria-describedby="emailHelp" placeholder="Unit MRP" value="{{
+                                               $product->product_unit_mrp }}">
                                     </div>
 
                                     <!-- Units in Stock Input Started From Here-->
@@ -92,7 +96,8 @@
                                         <small id="emailHelp" class="form-text text-dark mb-1">Units in Stock
                                             <span class="text-danger">*</span></small>
                                         <input type="text" name="product_unit_stock" class="form-control form-control-sm"
-                                               aria-describedby="emailHelp" placeholder="Units in Stock">
+                                               aria-describedby="emailHelp" placeholder="Units in Stock" value="{{
+                                               $product->product_unit_stock }}">
                                     </div>
                                 </div>
 
@@ -102,10 +107,8 @@
                                         <small id="emailHelp" class="form-text text-dark mb-1">Product Description
                                             <span class="text-danger">*</span></small>
                                         <textarea name="product_description" class="" id="productDescription"
-                                                  placeholder="Enter text .
-                                        ..">
-
-                                        </textarea>
+                                                  placeholder="Enter text.."
+                                                  value="{{$product->product_description}}"></textarea>
 
                                     </div>
                                 </div>
@@ -119,10 +122,10 @@
 
                         <!-- Product Options Section Started From here -->
                         <div class="card">
-                            <div class="card-header do-custom-header" style="background-color: #09b360; color: #ffeeee">
+                            <div class="card-header do-custom-header" style="background-color: #00796b; color: #ffeeee">
                                 <h6 class="text-center text-uppercase">Product Options</h6>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e0e0e0">
                                 <div class="form-row mb-4">
 
                                     <!-- Product Per Unit Section Started -->
@@ -130,7 +133,8 @@
                                         <small id="emailHelp" class="form-text text-dark mb-1">Product unit
                                             <span class="text-danger">*</span></small>
                                         <input type="text" name="product_unit[]" class="form-control form-control-sm"
-                                               aria-describedby="emailHelp" placeholder="Product unit">
+                                               aria-describedby="emailHelp" placeholder="Product unit" value="{{
+                                               $product->product_unit[0] }}">
                                     </div>
 
                                     <!-- Unit Measurement Input sectin started-->
@@ -138,7 +142,7 @@
                                         <small id="emailHelp" class="form-text text-dark mb-1">Unit Measurement
                                             <span class="text-danger">*</span></small>
                                         <select name="product_unit[]" class="form-control form-control-sm" id="emailHelp"
-                                                aria-describedby="emailHelp">
+                                                aria-describedby="emailHelp" value="{{ $product->product_unit[1] }}">
                                             <option selected>-- Select your unit measurement --</option>
                                             <option value="Kilogram">Kilogram (কেজি)</option>
                                             <option value="Dozen">Dozen (ডজন)</option>
@@ -155,7 +159,7 @@
                                         <span class="text-danger">*</span></small>
                                     <select name="product_availability" class="form-control form-control-sm"
                                             id="emailHelp"
-                                            aria-describedby="emailHelp">
+                                            aria-describedby="emailHelp" value="{{ $product->product_availability }}">
                                         <option selected>-- Availability Status --</option>
                                         <option value="In Stock">In Stock</option>
                                         <option value="Out Stock">Out Of Stock</option>
@@ -167,7 +171,7 @@
                                 <div class="col">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="productFeature"
-                                               name="product_feature">
+                                               name="product_feature" value="yes">
                                         <label class="custom-control-label" for="productFeature">Do you want take your product into feature?</label>
                                     </div>
                                 </div>
@@ -221,10 +225,10 @@
 
                         <!-- Product Options Images section started  -->
                         <div class="card">
-                            <div class="card-header do-custom-header" style="background-color: #09b360; color: #ffeeee">
+                            <div class="card-header do-custom-header" style="background-color: #00796b; color: #ffeeee">
                                 <h6 class="text-center text-uppercase"> Product images</h6>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e0e0e0">
                                 <div class="box">
                                     <input type="file" name="product_images[]" id="file-1" class="inputfile inputfile-1"
                                            data-multiple-caption="{count} files selected" multiple style="display: none"/>
@@ -240,14 +244,27 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <input type="submit" name="newProductButton" class="btn btn-success" value="Submit">
+                                <input type="submit" name="newProductButton" class="btn" style="background-color:
+                                #00796b; padding: 8px 21px; color: #e0e0e0; font-size: 17px"
+                                       value="Submit">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-    </div>
+        <script>
+            function setProductCode() {
 
+                var getProductName = document.getElementById('productName').value;
+                var getBrandName = document.getElementById('productBrand').value;
+                var getCategoryName = document.getElementById('productCategory').value;
+
+                var slicedProductName = getProductName.slice(0,4);
+                var finalProductName = slicedProductName.toUpperCase();
+                document.getElementById('productCode').value = finalProductName +'-'+getBrandName+'-'+getCategoryName;
+            }
+        </script>
+    </div>
 @endsection
 

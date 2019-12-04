@@ -6,7 +6,7 @@
 
 Route::middleware(['auth:admin', 'admin'])->group(function() {
     Route::get('test', function () {
-        dd(\App\Models\Client::count());
+//        dd(\App\Models\Client::count());
     });
     /* *************              Shop Management Routes              ************* */
     // Admin Dashboard Route
@@ -143,7 +143,7 @@ Route::middleware(['auth:admin', 'admin'])->group(function() {
     // Pages
     Route::prefix('pages')->group(function () {
         Route::get('/', 'PageController@index')->name('admin.pages');
-        //Route::get('create', 'PageController@create')->name('admin.pages.create');
+        Route::get('create', 'PageController@create')->name('admin.pages.create');
         Route::get('edit/{id}', 'PageController@edit')->name('admin.pages.edit');
         Route::patch('edit/{id}', 'PageController@update');
     });

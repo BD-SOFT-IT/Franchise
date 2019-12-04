@@ -21,9 +21,6 @@
 
                                     <!-- Product Name Section -->
                                     <div class="col">
-{{--                                        {{$seller_id = \App\Seller::all()}}--}}
-{{--                                        <input type="hidden" name="seller_id" value="{{ $seller_id->seller_id }}">--}}
-
                                         <input type="hidden" name="seller_id" value="">
                                         <small id="smallProductName" class="form-text text-dark mb-1">Product Name
                                             <span class="text-danger">*</span></small>
@@ -278,6 +275,5 @@
                     }
         </script>
     </div>
-
 @endsection
 

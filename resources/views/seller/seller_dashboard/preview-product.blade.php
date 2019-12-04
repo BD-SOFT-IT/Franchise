@@ -15,21 +15,12 @@
                     <div class="col-12 col-sm-6">
                         <h3 class="d-inline-block d-sm-none">
                         </h3>
-                        <div class="col-12">
-                            <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
-                        </div>
-                        <div class="col-12 product-image-thumbs">
-
-
-                            @foreach($sellerProductImages as $image)
-                                <img src="{{ asset($image->images_path) }}" width=70 height="70">
-                            @endforeach
-
-                            {{--                            </div>--}}
-                        </div>
-                        @foreach($sellerProducts as $sellerProduct)
-
+                        @foreach($sellerProductImages as $image)
+                            <img src="{{ asset($image->images_path) }}" alt="" srcset="" height="200"
+                                 width="300">
                         @endforeach
+                        <div class="col-12 product-image-thumbs"></div>
+
                     </div>
                     <div class="col-12 col-sm-6">
                         <h3 class="my-3">
@@ -80,7 +71,7 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-default text-center">
                                 <input type="radio" name="color_option" id="color_option1" autocomplete="off">
-                                <span class="text-xl">{{ $sellerProductJoin->category_title }}</span>
+                                <span class="text-xl"></span>
                                 <br>
                             </label>
                         </div>
@@ -89,7 +80,7 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-default text-center">
                                 <input type="radio" name="color_option" id="color_option1" autocomplete="off">
-                                <span class="text-xl">{{ $sellerProduct->product_category }}</span>
+                                <span class="text-xl"></span>
                                 <br>
                             </label>
                         </div>
